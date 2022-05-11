@@ -26,11 +26,15 @@ func (Disk) start() {
 	fmt.Println("启动硬盘。。。")
 }
 
+type Btn interface {
+	startBth()
+}
+
 // 开机键
 type StartBtn struct {
 }
 
-func (StartBtn) start() {
+func (StartBtn) startBth() {
 	cpu := &CPU{}
 	cpu.start()
 	memory := &Memory{}

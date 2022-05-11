@@ -35,10 +35,12 @@ type Option interface {
 type optionFunc func(*options)
 
 func (f optionFunc) apply(o *options) {
+	// 执行预定义函数
 	f(o)
 }
 
 func WithTimeout(t time.Duration) Option {
+	// 定义函数具体逻辑
 	return optionFunc(func(o *options) {
 		o.timeout = t
 	})
