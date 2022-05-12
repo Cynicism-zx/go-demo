@@ -67,6 +67,7 @@ require (
 	github.com/soheilhy/cmux v0.1.4
 	github.com/sony/sonyflake v1.0.0
 	github.com/spaolacci/murmur3 v1.1.0
+	github.com/spf13/cobra v1.4.0
 	github.com/streadway/amqp v0.0.0-20190404075320-75d898a42a94
 	github.com/stretchr/testify v1.7.0
 	github.com/uber/jaeger-client-go v2.23.1+incompatible
@@ -90,7 +91,7 @@ require (
 	gopkg.in/go-playground/pool.v3 v3.1.1
 	gopkg.in/go-playground/validator.v8 v8.18.2
 	gopkg.in/oauth2.v3 v3.12.0
-	gopkg.in/yaml.v2 v2.2.8
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
@@ -145,6 +146,7 @@ require (
 	github.com/hashicorp/golang-lru v0.5.0 // indirect
 	github.com/hashicorp/serf v0.8.2 // indirect
 	github.com/igm/sockjs-go v3.0.2+incompatible // indirect
+	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
 	github.com/jinzhu/now v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
@@ -189,6 +191,7 @@ require (
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/smartwalle/crypto4go v1.0.2 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/temoto/robotstxt v1.1.1 // indirect
 	github.com/tidwall/btree v0.0.0-20170113224114-9876f1454cf0 // indirect
 	github.com/tidwall/buntdb v1.1.0 // indirect
