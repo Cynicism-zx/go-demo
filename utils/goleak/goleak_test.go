@@ -26,7 +26,7 @@ func TestGoLeak(t *testing.T) {
 	leak()
 }
 
-// 集成到TestMain中
+// 集成到TestMain中,用例执行时自动检测
 func TestMain(m *testing.M) {
 	goleak.VerifyTestMain(m)
 }

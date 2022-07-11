@@ -15,7 +15,7 @@ func DeepCopy(src, dst interface{}) error {
 	return gob.NewDecoder(bytes.NewBuffer(buf.Bytes())).Decode(dst)
 }
 
-// 基于反射的深度拷贝
+// 基于反射的深度拷贝(更高效)
 func Copy(src, dst interface{}) error {
 	return copier.Copy(dst, src)
 }

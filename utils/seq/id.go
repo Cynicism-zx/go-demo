@@ -2,9 +2,9 @@ package seq
 
 import (
 	"context"
+	"github.com/gogf/gf/util/gconv"
 	"github.com/sony/sonyflake"
 	"google.golang.org/grpc/metadata"
-	"strconv"
 	"time"
 )
 
@@ -16,6 +16,8 @@ var (
 func init() {
 	var st sonyflake.Settings
 	st.StartTime = startTime
+	// 机器位默认的是当前机器的私有IP的最后两位
+	//st.MachineID = machineId
 	sf = sonyflake.NewSonyflake(st)
 	if sf == nil {
 		panic("sonyflake not created")
@@ -35,7 +37,7 @@ func NextID(ctx context.Context) string {
 		return err.Error()
 	}
 	// uit64 转成 str
-	id := strconv.FormatUint(nextId, 10)
+	id := gconv.String(nextId)
 
 	if ctx == nil {
 		ctx = context.Background()
@@ -53,4 +55,9 @@ func NextID(ctx context.Context) string {
 		}
 	}
 	return id
+}
+
+// 获取当前机器的私有IP的最后两位
+func machineId() (uint16, error) {
+	return 0, nil
 }

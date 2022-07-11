@@ -4,11 +4,13 @@ go 1.18
 
 require (
 	github.com/Shopify/sarama v1.20.0
+	github.com/ThreeDotsLabs/watermill v1.1.1
 	github.com/TruthHun/html2md v0.0.0-20190507142218-8352cc68f88e
 	github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5
 	github.com/alibaba/sentinel-golang v0.3.0
 	github.com/aliyun/alibaba-cloud-sdk-go v0.0.0-20190827030439-84d9962c10d3
 	github.com/aliyun/aliyun-oss-go-sdk v2.0.1+incompatible
+	github.com/allegro/bigcache/v3 v3.0.2
 	github.com/apache/rocketmq-client-go/v2 v2.1.0
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394
 	github.com/charmbracelet/lipgloss v0.1.1
@@ -16,10 +18,14 @@ require (
 	github.com/dchest/captcha v0.0.0-20170622155422-6a29415a8364
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/eclipse/paho.mqtt.golang v1.2.0
+	github.com/fergusstrange/embedded-postgres v1.17.0
 	github.com/fsnotify/fsnotify v1.4.9
 	github.com/gin-contrib/pprof v1.3.0
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-ldap/ldap v3.0.2+incompatible
+	github.com/go-playground/locales v0.13.0
+	github.com/go-playground/universal-translator v0.17.0
+	github.com/go-playground/validator/v10 v10.2.0
 	github.com/go-redis/redis v6.15.6+incompatible
 	github.com/go-session/session v3.1.2+incompatible
 	github.com/go-vgo/robotgo v0.0.0-20191216133555-c86926da97a5
@@ -35,14 +41,16 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.1.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/hashicorp/consul/api v1.1.0
+	github.com/hibiken/asynq v0.23.0
+	github.com/imdario/mergo v0.3.6
 	github.com/jinzhu/copier v0.0.0-20190625015134-976e0346caa8
 	github.com/jinzhu/gorm v1.9.2
 	github.com/json-iterator/go v1.1.9
 	github.com/koding/kite v0.0.0-20180710021347-baa1a54919e3
 	github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7
-	github.com/lxn/walk v0.0.0-20191128110447-55ccb3a9f5c1
+	github.com/lxn/walk v0.0.0-20210112085537-c389da54e794
 	github.com/marusama/cyclicbarrier v1.1.0
-	github.com/mattn/go-colorable v0.1.8
+	github.com/mattn/go-colorable v0.1.12
 	github.com/mdp/qrterminal/v3 v3.0.0
 	github.com/microcosm-cc/bluemonday v1.0.2
 	github.com/mozillazg/go-pinyin v0.18.0
@@ -59,6 +67,7 @@ require (
 	github.com/qianlnk/pgbar v0.0.0-20190929032005-46c23acad4ed
 	github.com/robertkrimen/otto v0.0.0-20200922221731-ef014fd054ac
 	github.com/robfig/cron v0.0.0-20180505203441-b41be1df6967
+	github.com/rs/zerolog v1.27.0
 	github.com/russross/blackfriday v2.0.0+incompatible
 	github.com/shirou/gopsutil v2.19.12+incompatible
 	github.com/skip2/go-qrcode v0.0.0-20190110000554-dc11ecdae0a9
@@ -70,6 +79,7 @@ require (
 	github.com/spf13/cobra v1.4.0
 	github.com/streadway/amqp v0.0.0-20190404075320-75d898a42a94
 	github.com/stretchr/testify v1.7.0
+	github.com/thoas/go-funk v0.9.2
 	github.com/uber/jaeger-client-go v2.23.1+incompatible
 	github.com/unidoc/unioffice v1.2.0
 	github.com/xuri/excelize v1.4.0
@@ -125,12 +135,8 @@ require (
 	github.com/fatih/camelcase v1.0.0 // indirect
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
-	github.com/fergusstrange/embedded-postgres v1.17.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-ole/go-ole v1.2.4 // indirect
-	github.com/go-playground/locales v0.13.0 // indirect
-	github.com/go-playground/universal-translator v0.17.0 // indirect
-	github.com/go-playground/validator/v10 v10.2.0 // indirect
 	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/go-stack/stack v1.8.0 // indirect
@@ -149,7 +155,6 @@ require (
 	github.com/hashicorp/go-rootcerts v1.0.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.0 // indirect
 	github.com/hashicorp/serf v0.8.2 // indirect
-	github.com/hibiken/asynq v0.23.0 // indirect
 	github.com/igm/sockjs-go v3.0.2+incompatible // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
@@ -163,10 +168,11 @@ require (
 	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
 	github.com/leodido/go-urn v1.2.0 // indirect
 	github.com/lib/pq v1.10.6 // indirect
+	github.com/lithammer/shortuuid/v3 v3.0.4 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/lxn/win v0.0.0-20191128105842-2da648fda5b4 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/mattn/go-isatty v0.0.12 // indirect
+	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mattn/go-runewidth v0.0.10 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/mitchellh/go-homedir v1.0.0 // indirect
@@ -176,6 +182,7 @@ require (
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/muesli/reflow v0.2.1-0.20210115123740-9e1d0d53df68 // indirect
 	github.com/muesli/termenv v0.8.1 // indirect
+	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/otiai10/gosseract v2.2.1+incompatible // indirect
 	github.com/pierrec/lz4 v2.0.7+incompatible // indirect

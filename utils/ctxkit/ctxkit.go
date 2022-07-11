@@ -14,6 +14,8 @@ func (ctxHeaderKey) String() string {
 	return "Header-Ctx-Key"
 }
 
+// gconv 类型转换库
+
 func SetHeaderMiddleware(c *gin.Context) {
 	c.Request = c.Request.WithContext(SetValue(c.Request.Context(), ctxHeaderKey{}, c.Request.Header))
 	c.Next()
