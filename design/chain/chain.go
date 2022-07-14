@@ -5,9 +5,11 @@ import (
 	"strings"
 )
 
+// 责任链模式(链式调用)
+
 type Handler interface {
 	Handle(content string)
-	next(handler Handler, content string)
+	next(content string)
 }
 
 // 广告过滤
@@ -19,10 +21,10 @@ func (ad *AdHandler) Handle(content string) {
 	fmt.Println("执行广告过滤。。。")
 	newContent := strings.Replace(content, "广告", "**", 1)
 	fmt.Println(newContent)
-	ad.next(ad.handler, newContent)
+	ad.next(newContent)
 }
 
-func (ad *AdHandler) next(handler Handler, content string) {
+func (ad *AdHandler) next(content string) {
 	if ad.handler != nil {
 		ad.handler.Handle(content)
 	}
@@ -37,10 +39,10 @@ func (yellow *YellowHandler) Handle(content string) {
 	fmt.Println("执行涉黄过滤。。。")
 	newContent := strings.Replace(content, "涉黄", "**", 1)
 	fmt.Println(newContent)
-	yellow.next(yellow.handler, newContent)
+	yellow.next(newContent)
 }
 
-func (yellow *YellowHandler) next(handler Handler, content string) {
+func (yellow *YellowHandler) next(content string) {
 	if yellow.handler != nil {
 		yellow.handler.Handle(content)
 	}
@@ -55,10 +57,10 @@ func (sensitive *SensitiveHandler) Handle(content string) {
 	fmt.Println("执行敏感词过滤。。。")
 	newContent := strings.Replace(content, "敏感词", "***", 1)
 	fmt.Println(newContent)
-	sensitive.next(sensitive.handler, newContent)
+	sensitive.next(newContent)
 }
 
-func (sensitive *SensitiveHandler) next(handler Handler, content string) {
+func (sensitive *SensitiveHandler) next(content string) {
 	if sensitive.handler != nil {
 		sensitive.handler.Handle(content)
 	}

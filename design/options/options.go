@@ -27,29 +27,19 @@ type options struct {
 	caching bool
 }
 
-// Option overrides behavior of Connect.
-type Option interface {
-	apply(*options)
-}
-
-type optionFunc func(*options)
-
-func (f optionFunc) apply(o *options) {
-	// 执行预定义函数
-	f(o)
-}
+type Option func(*options)
 
 func WithTimeout(t time.Duration) Option {
 	// 定义函数具体逻辑
-	return optionFunc(func(o *options) {
+	return func(o *options) {
 		o.timeout = t
-	})
+	}
 }
 
 func WithCaching(cache bool) Option {
-	return optionFunc(func(o *options) {
+	return func(o *options) {
 		o.caching = cache
-	})
+	}
 }
 
 // Connect creates a connection.
@@ -61,7 +51,7 @@ func Connect(addr string, opts ...Option) (*Connection, error) {
 	}
 
 	for _, o := range opts {
-		o.apply(&options)
+		o(&options)
 	}
 
 	return &Connection{

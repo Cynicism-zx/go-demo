@@ -1,6 +1,6 @@
 package strategy
 
-// 策略模式
+// 策略模式 https://zhuanlan.zhihu.com/p/346939670
 
 // 实现此接口，则为一个策略
 type IStrategy interface {

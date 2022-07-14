@@ -17,9 +17,7 @@ func GetInstance(name string) *Instance {
 	if instance == nil {
 		lock.Lock()
 		defer lock.Unlock()
-		if instance == nil {
-			instance = &Instance{Name: name}
-		}
+		instance = &Instance{Name: name}
 	}
 	return instance
 }

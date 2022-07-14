@@ -2,6 +2,8 @@ package adaptor
 
 import "fmt"
 
+// 接口适配器
+
 // 我们的接口（新接口）——音乐播放
 type MusicPlayer interface {
 	play(fileType string, fileName string)
@@ -19,7 +21,7 @@ func (*ExistPlayer) playWma(fileName string) {
 	fmt.Println("play wma :", fileName)
 }
 
-// 适配器
+// 适配器(继承原有的结构)
 type PlayerAdaptor struct {
 	// 持有一个旧接口
 	existPlayer ExistPlayer

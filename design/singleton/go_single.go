@@ -11,7 +11,7 @@ var (
 )
 
 // 使用go 实现单例模式
-func GetIns() *singleton {
+func GoInstance() *singleton {
 	once.Do(func() {
 		ins = &singleton{}
 	})
