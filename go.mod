@@ -3,6 +3,7 @@ module go-demo
 go 1.18
 
 require (
+	bou.ke/monkey v1.0.1
 	github.com/Shopify/sarama v1.20.0
 	github.com/ThreeDotsLabs/watermill v1.1.1
 	github.com/TruthHun/html2md v0.0.0-20190507142218-8352cc68f88e
