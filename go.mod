@@ -16,6 +16,7 @@ require (
 	github.com/bits-and-blooms/bitset v1.2.2
 	github.com/bytedance/sonic v1.3.4
 	github.com/charmbracelet/lipgloss v0.1.1
+	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0
 	github.com/coreos/etcd v3.3.18+incompatible
 	github.com/dchest/captcha v0.0.0-20170622155422-6a29415a8364
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
