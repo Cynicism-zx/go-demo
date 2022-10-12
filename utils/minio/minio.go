@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"log"
 )
 
 const (
@@ -26,6 +27,9 @@ func main() {
 		log.Fatalln("minio连接错误: ", err)
 	}
 	log.Printf("连接成功 %#v\n", client)
-	createBucket()
+	err := createBucket()
+	if err != nil {
+		return
+	}
 	FileUploader()
 }
