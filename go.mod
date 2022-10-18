@@ -15,6 +15,7 @@ require (
 	github.com/apache/rocketmq-client-go/v2 v2.1.0
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394
 	github.com/bits-and-blooms/bitset v1.2.2
+	github.com/bxcodec/faker v2.0.1+incompatible
 	github.com/bytedance/sonic v1.3.4
 	github.com/charmbracelet/lipgloss v0.1.1
 	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0
