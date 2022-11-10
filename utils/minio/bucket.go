@@ -3,8 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/minio/minio-go/v7"
 	"log"
+
+	"github.com/minio/minio-go/v7"
 )
 
 var bucketName = "picture"

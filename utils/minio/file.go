@@ -2,10 +2,13 @@ package main
 
 import (
 	"context"
-	"github.com/minio/minio-go/v7"
+	"errors"
 	"log"
+	"net/http"
 	"os"
 	"path"
+
+	"github.com/minio/minio-go/v7"
 )
 
 // 上传文件
@@ -42,4 +45,23 @@ func FilesDelete() {
 		}
 	}()
 	client.RemoveObjects(ctx, objectName, objectsCh, minio.RemoveObjectsOptions{})
+}
+
+// 文件状态
+func FileStat() error {
+	ctx := context.Background()
+	// 获取文件信息
+	object, err := client.StatObject(ctx, bucketName, objectName, minio.StatObjectOptions{})
+	if err != nil {
+		if e, ok := err.(minio.ErrorResponse); ok {
+			if e.StatusCode == http.StatusNotFound {
+				log.Println("文件不存在")
+				return errors.New("文件不存在")
+			}
+		}
+		log.Println("获取文件信息失败：", err)
+		return err
+	}
+	log.Println(object)
+	return nil
 }
