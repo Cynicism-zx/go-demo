@@ -3,9 +3,10 @@ package sema
 import (
 	"context"
 	"fmt"
-	"golang.org/x/sync/semaphore"
 	"testing"
 	"time"
+
+	"golang.org/x/sync/semaphore"
 )
 
 // 通过信号量控制goroutine并发执行的数量

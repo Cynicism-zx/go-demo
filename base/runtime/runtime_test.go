@@ -11,7 +11,7 @@ import (
 )
 
 func TestRuntime(t *testing.T) {
-	//设置线程池中线程最大数等于CPU数，最大的利用CPU
+	// 设置线程池中线程最大数等于CPU数，最大的利用CPU
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	go demo1()
 

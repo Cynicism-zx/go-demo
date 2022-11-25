@@ -1,9 +1,10 @@
 package main
 
 import (
-	"go-demo/sdk/trace/demo"
 	"io"
 	"net/http"
+
+	"go-demo/sdk/trace/demo"
 
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"

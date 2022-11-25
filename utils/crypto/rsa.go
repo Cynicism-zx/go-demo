@@ -102,7 +102,7 @@ func ParsePublicKey(publicKey string) (key *rsa.PublicKey, err error) {
 }
 
 func packageData(originalData []byte, packageSize int) (r [][]byte) {
-	var src = make([]byte, len(originalData))
+	src := make([]byte, len(originalData))
 	copy(src, originalData)
 
 	r = make([][]byte, 0)
@@ -110,7 +110,7 @@ func packageData(originalData []byte, packageSize int) (r [][]byte) {
 		return append(r, src)
 	}
 	for len(src) > 0 {
-		var p = src[:packageSize]
+		p := src[:packageSize]
 		r = append(r, p)
 		src = src[packageSize:]
 		if len(src) <= packageSize {
@@ -133,11 +133,11 @@ func RSAEncrypt(src []byte, publicKey string) ([]byte, error) {
 
 // 使用公钥 key 对数据 src 进行 RSA 加密
 func RSAEncryptWithKey(src []byte, key *rsa.PublicKey) ([]byte, error) {
-	var data = packageData(src, key.N.BitLen()/8-11)
-	var cipher = make([]byte, 0, 0)
+	data := packageData(src, key.N.BitLen()/8-11)
+	cipher := make([]byte, 0, 0)
 
 	for _, d := range data {
-		var c, e = rsa.EncryptPKCS1v15(rand.Reader, key, d)
+		c, e := rsa.EncryptPKCS1v15(rand.Reader, key, d)
 		if e != nil {
 			return nil, e
 		}
@@ -181,11 +181,11 @@ func RSADecryptWithPKCS8(cipher, key []byte) ([]byte, error) {
 
 // 使用私钥 key 对数据 cipher 进行 RSA 解密
 func RsaDecryptWithKey(cipher []byte, privateKey *rsa.PrivateKey) ([]byte, error) {
-	var data = packageData(cipher, privateKey.PublicKey.N.BitLen()/8)
-	var plain = make([]byte, 0, 0)
+	data := packageData(cipher, privateKey.PublicKey.N.BitLen()/8)
+	plain := make([]byte, 0, 0)
 
 	for _, d := range data {
-		var p, e = rsa.DecryptPKCS1v15(rand.Reader, privateKey, d)
+		p, e := rsa.DecryptPKCS1v15(rand.Reader, privateKey, d)
 		if e != nil {
 			return nil, e
 		}
@@ -208,9 +208,9 @@ func RsaSign(src, privateKey []byte, hash crypto.Hash) ([]byte, error) {
 
 // 使用私钥签名
 func RsaSignWithKey(src []byte, privateKey *rsa.PrivateKey, hash crypto.Hash) ([]byte, error) {
-	var h = hash.New()
+	h := hash.New()
 	h.Write(src)
-	var hashed = h.Sum(nil)
+	hashed := h.Sum(nil)
 	return rsa.SignPKCS1v15(rand.Reader, privateKey, hash, hashed)
 }
 
@@ -224,9 +224,9 @@ func RSAVerify(src, sign []byte, publicKey string, hash crypto.Hash) error {
 }
 
 func RSAVerifyWithKey(src, sign []byte, key *rsa.PublicKey, hash crypto.Hash) error {
-	var h = hash.New()
+	h := hash.New()
 	h.Write(src)
-	var hashed = h.Sum(nil)
+	hashed := h.Sum(nil)
 	return rsa.VerifyPKCS1v15(key, hash, hashed, sign)
 }
 
@@ -241,8 +241,8 @@ func formatKey(raw, prefix, suffix string, lineCount int) []byte {
 	raw = strings.Replace(raw, "\r", "", -1)
 	raw = strings.Replace(raw, "\t", "", -1)
 
-	var sl = len(raw)
-	var c = sl / lineCount
+	sl := len(raw)
+	c := sl / lineCount
 	if sl%lineCount > 0 {
 		c = c + 1
 	}
@@ -250,8 +250,8 @@ func formatKey(raw, prefix, suffix string, lineCount int) []byte {
 	var buf bytes.Buffer
 	buf.WriteString(prefix + "\n")
 	for i := 0; i < c; i++ {
-		var b = i * lineCount
-		var e = b + lineCount
+		b := i * lineCount
+		e := b + lineCount
 		if e > sl {
 			buf.WriteString(raw[b:])
 		} else {

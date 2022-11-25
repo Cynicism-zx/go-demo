@@ -2,10 +2,11 @@ package ctxkit
 
 import (
 	"context"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/gogf/gf/util/gconv"
 	"google.golang.org/grpc/metadata"
-	"net/http"
 )
 
 type ctxHeaderKey struct{}

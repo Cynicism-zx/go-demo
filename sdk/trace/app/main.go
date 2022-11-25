@@ -1,10 +1,11 @@
 package main
 
 import (
+	"math/rand"
+
 	"github.com/gin-gonic/gin"
 	"go-demo/sdk/trace/app/db"
 	"go-demo/sdk/trace/app/middleware"
-	"math/rand"
 )
 
 type User struct {

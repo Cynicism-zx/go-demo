@@ -3,11 +3,12 @@ package cyclicbarrier
 import (
 	"context"
 	"fmt"
-	"github.com/marusama/cyclicbarrier"
-	"golang.org/x/sync/semaphore"
 	"sort"
 	"sync"
 	"testing"
+
+	"github.com/marusama/cyclicbarrier"
+	"golang.org/x/sync/semaphore"
 )
 
 // 循环栅栏，允许一组 goroutine 彼此等待，到达一个共同的执行点
@@ -21,7 +22,7 @@ import (
 // 而且水分子是一个一个按照顺序产生的，每生产一个水分子，
 // 就会打印出 HHO，其他形式如：HHH、OOH、OHO、HOO、OOO 都是不允许的。
 func TestCyclicBarrier(t *testing.T) {
-	//用来存放水分子结果的channel
+	// 用来存放水分子结果的channel
 	var ch chan string
 	releaseHydrogen := func() {
 		ch <- "H"
@@ -31,7 +32,7 @@ func TestCyclicBarrier(t *testing.T) {
 	}
 
 	// 30个原子，30个goroutine,每个goroutine并发的产生一个原子
-	var N = 10
+	N := 10
 	ch = make(chan string, N*3)
 
 	h2o := New()
@@ -56,7 +57,7 @@ func TestCyclicBarrier(t *testing.T) {
 		}()
 	}
 
-	//等待所有的goroutine执行完
+	// 等待所有的goroutine执行完
 	wg.Wait()
 
 	// 结果中肯定是300个原子
@@ -65,7 +66,7 @@ func TestCyclicBarrier(t *testing.T) {
 	}
 
 	// 每三个原子一组，分别进行检查。要求这一组原子中必须包含两个氢原子和一个氧原子，这样才能正确组成一个水分子。
-	var s = make([]string, 3)
+	s := make([]string, 3)
 	for i := 0; i < N; i++ {
 		s[0] = <-ch
 		s[1] = <-ch

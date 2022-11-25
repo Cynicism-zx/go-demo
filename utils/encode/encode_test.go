@@ -1,9 +1,10 @@
 package encode
 
 import (
+	"testing"
+
 	"github.com/axgle/mahonia"
 	"golang.org/x/text/encoding/simplifiedchinese"
-	"testing"
 )
 
 func TestUTF8ToGBK(t *testing.T) {

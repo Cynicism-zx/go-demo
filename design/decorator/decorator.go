@@ -8,12 +8,12 @@ type Person interface {
 }
 
 // 被装饰对象
-type laowang struct {
-}
+type laowang struct{}
 
 func (*laowang) show() {
 	fmt.Println("赤裸裸的老王。。。")
 }
+
 func (*laowang) cost() int {
 	return 0
 }
@@ -39,6 +39,7 @@ type Jacket struct {
 func (j *Jacket) cost() int {
 	return j.person.cost() + 10
 }
+
 func (j *Jacket) show() {
 	// 执行已有的方法
 	j.person.show()
@@ -53,6 +54,7 @@ type Hat struct {
 func (h *Hat) cost() int {
 	return h.person.cost() + 5
 }
+
 func (h *Hat) show() {
 	fmt.Println("戴上帽子的老王。。。")
 }

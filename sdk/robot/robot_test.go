@@ -2,10 +2,11 @@ package robot
 
 import (
 	"fmt"
-	"go-demo/utils/env"
 	"strings"
 	"testing"
 	"time"
+
+	"go-demo/utils/env"
 )
 
 const (
@@ -79,14 +80,14 @@ func TestSendLink(t *testing.T) {
 
 func buildMsg() string {
 	contents := []*Content{
-		&Content{
+		{
 			Level:  "Dev",
 			Method: "biz.SalaryService/RunJob",
 			Msg:    "特殊异常",
 			Svc:    "biz",
 			Tid:    "123456789",
 		},
-		&Content{
+		{
 			Level:  "Dev",
 			Method: "biz.AttendanceService/RunJob",
 			Msg:    "特殊异常",

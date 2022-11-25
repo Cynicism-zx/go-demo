@@ -1,8 +1,9 @@
 package redis
 
 import (
-	"github.com/go-redis/redis"
 	"testing"
+
+	"github.com/go-redis/redis"
 )
 
 func TestRedis(t *testing.T) {

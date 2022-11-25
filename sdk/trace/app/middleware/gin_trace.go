@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"bytes"
+
 	"github.com/gin-gonic/gin"
 	"github.com/opentracing/opentracing-go"
 	"github.com/uber/jaeger-client-go"

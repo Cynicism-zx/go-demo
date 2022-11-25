@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/goinggo/mapstructure"
 	"reflect"
 	"strings"
+
+	"github.com/goinggo/mapstructure"
 )
 
 func StructToJSON(obj interface{}) string {
@@ -68,7 +69,7 @@ func FormatMarshal(value interface{}) string {
 
 // 不让特殊字符编码为Unicode
 func MarshalUnEscapeHTML(value interface{}) string {
-	var s = &bytes.Buffer{}
+	s := &bytes.Buffer{}
 	e := json.NewEncoder(s)
 	e.SetEscapeHTML(false)
 	err := e.Encode(value)

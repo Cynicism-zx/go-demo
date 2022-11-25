@@ -12,8 +12,7 @@ import (
 false
 false
 */
-type Student struct {
-}
+type Student struct{}
 
 func TestNil(t *testing.T) {
 	var stu1, stu2 Student

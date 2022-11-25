@@ -3,7 +3,6 @@ package observer
 import "testing"
 
 func TestObserver(t *testing.T) {
-
 	customerA := &CustomerA{}
 	customerB := &CustomerB{}
 
@@ -13,5 +12,4 @@ func TestObserver(t *testing.T) {
 	office.addCustomer(customerB)
 	// 新的报纸
 	office.newspaperCome()
-
 }

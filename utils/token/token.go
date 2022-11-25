@@ -2,6 +2,7 @@ package utils
 
 import (
 	"errors"
+
 	"github.com/dgrijalva/jwt-go"
 )
 
@@ -22,7 +23,6 @@ const (
 
 // 生成token
 func GenJwtToken(claims jwt.MapClaims) (string, error) {
-
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
 	return token.SignedString([]byte(secretKey))

@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-//正则表达式使用
+// 正则表达式使用
 func TestRegexp(t *testing.T) {
 	// 手机号检查
 	r := regexp.MustCompile("(13|14|15|17|18|19)[0-9]{9}")
@@ -37,7 +37,7 @@ func TestRegexp(t *testing.T) {
 }
 
 func TestRegexpDemo(t *testing.T) {
-	var text = "Hello 世界！123 Go."
+	text := "Hello 世界！123 Go."
 	// 查找连续的小写字母
 	reg := regexp.MustCompile(`[a-z]+`)
 	fmt.Printf("%q\n", reg.FindAllString(text, -1))
@@ -212,5 +212,4 @@ func TestRegexpDemo(t *testing.T) {
 	str15 := "-jb51"
 	matched15, err := regexp.MatchString("[A-Za-z0-9_]+", str15)
 	fmt.Println(matched15, err)
-
 }

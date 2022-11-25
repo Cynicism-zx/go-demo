@@ -18,7 +18,6 @@ var (
 )
 
 func main() {
-
 	fmt.Print("Initiating server........")
 	listener, err := net.Listen("tcp", remote)
 	defer listener.Close()
@@ -39,7 +38,6 @@ func main() {
 
 		// 为每一个连接分配一个goroutine
 		go func(con net.Conn) {
-
 			fmt.Printf("New Connection : %s \n", con.RemoteAddr())
 			// 得到客户端的名字
 			length, err := con.Read(data)

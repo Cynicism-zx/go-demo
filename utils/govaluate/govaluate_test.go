@@ -1,8 +1,9 @@
 package govaluate
 
 import (
-	"gopkg.in/Knetic/govaluate.v3"
 	"testing"
+
+	"gopkg.in/Knetic/govaluate.v3"
 )
 
 // 值比较

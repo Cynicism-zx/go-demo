@@ -108,7 +108,7 @@ func Close() {
 			select {
 			case <-consumer.StopChan:
 			case <-time.After(time.Second * 60):
-				//等待一分钟让其关闭handler
+				// 等待一分钟让其关闭handler
 			}
 		}
 		consumers.Delete(key)

@@ -1,8 +1,9 @@
 package netx_test
 
 import (
-	netx "go-demo/base/net"
 	"testing"
+
+	netx "go-demo/base/net"
 )
 
 func TestGetIp(t *testing.T) {

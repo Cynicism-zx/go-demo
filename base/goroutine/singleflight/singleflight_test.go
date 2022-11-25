@@ -2,10 +2,11 @@ package singleflight
 
 import (
 	"fmt"
-	"golang.org/x/sync/singleflight"
 	"io/ioutil"
 	"testing"
 	"time"
+
+	"golang.org/x/sync/singleflight"
 )
 
 var (

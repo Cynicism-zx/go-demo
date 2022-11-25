@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go-demo/leetcode/common/tree"
 	"math"
+
+	"go-demo/leetcode/common/tree"
 )
 
 // 统计树有多少个节点
@@ -22,8 +23,11 @@ func countNode(root *tree.TreeNode) int {
 // https://leetcode-cn.com/problems/find-duplicate-subtrees/
 // 1. 记录以我为根节点的这棵二叉树长什么样子
 // 2. 其他节点是否存在跟我一样
-var result []int                    // 记录重复的根节点值
-var treeMap = make(map[string]bool) // 记录该子树是否已存在
+var (
+	result  []int                   // 记录重复的根节点值
+	treeMap = make(map[string]bool) // 记录该子树是否已存在
+)
+
 func findDuplicateSubTree(root *tree.TreeNode) {
 	if root == nil {
 		return
@@ -113,9 +117,9 @@ func maxDepth(root *tree.TreeNode) int {
 // 构造最大二叉树
 // https://leetcode-cn.com/problems/maximum-binary-tree/
 // 给定一个不含重复元素的整数数组 nums 。一个以此数组直接递归构建的 最大二叉树 定义如下：
-//二叉树的根是数组 nums 中的最大元素。
-//左子树是通过数组中 最大值左边部分 递归构造出的最大二叉树。
-//右子树是通过数组中 最大值右边部分 递归构造出的最大二叉树。
+// 二叉树的根是数组 nums 中的最大元素。
+// 左子树是通过数组中 最大值左边部分 递归构造出的最大二叉树。
+// 右子树是通过数组中 最大值右边部分 递归构造出的最大二叉树。
 func constructMaximumBinaryTree(nums []int) *tree.TreeNode {
 	return buildTree(nums, 0, len(nums)-1)
 }
@@ -158,7 +162,7 @@ func buildTreeByPreAndInOrder(pre []int, in []int, preStar, preEnd int, inStar, 
 	// 根据前序结果遍历可知，第一个值为根节点
 	rootVal := pre[preStar]
 
-	var index int //根节点在中序遍历中的位置
+	var index int // 根节点在中序遍历中的位置
 	for i := inStar; i <= inEnd; i++ {
 		if in[i] == rootVal {
 			index = i
@@ -186,7 +190,7 @@ func buildTreeByAfterAndInOrder(after []int, in []int, afterStar, afterEnd int, 
 	// 根据后序结果遍历可知，最后值为根节点
 	rootVal := after[afterEnd]
 
-	var index int //根节点在中序遍历中的位置
+	var index int // 根节点在中序遍历中的位置
 	for i := inStar; i <= inEnd; i++ {
 		if in[i] == rootVal {
 			index = i

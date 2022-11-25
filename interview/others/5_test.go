@@ -24,7 +24,7 @@ func TestSelectChan(t *testing.T) {
 	case value := <-intChan:
 		fmt.Println(value)
 	case _ = <-strChan:
-		//panic(value)
+		// panic(value)
 		fmt.Println("触发异常")
 	}
 }

@@ -2,13 +2,14 @@ package test
 
 import (
 	"context"
+	"testing"
+	"time"
+
 	"go-demo/utils/env"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"testing"
-	"time"
 )
 
 type User struct {
@@ -21,9 +22,7 @@ func TestMongoDB(t *testing.T) {
 	if env.IsCI() {
 		return
 	}
-	var (
-		ctx, _ = context.WithTimeout(context.Background(), 10*time.Second)
-	)
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://ip:27017"))
 	if err != nil {
 		t.Error(err)
@@ -87,5 +86,4 @@ func TestMongoDB(t *testing.T) {
 	if err := cur.Err(); err != nil {
 		t.Error(err)
 	}
-
 }

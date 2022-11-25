@@ -12,7 +12,7 @@ func TestString(t *testing.T) {
 	s := str[0]
 	log.Println("str[0]:", s)
 
-	//遍历每一个字符
+	// 遍历每一个字符
 	for i, j := range str {
 		// 注意： i 不是递增的，i 是根据 他的字节进行增加的
 		log.Printf("第%d个字符：%s", i, string(j))

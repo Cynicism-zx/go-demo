@@ -30,8 +30,7 @@ func (a *Aspect) GetAspectExpress() string {
 	return ".*\\.HelloAop"
 }
 
-type HelloAop struct {
-}
+type HelloAop struct{}
 
 func (h *HelloAop) HelloAop() {
 	fmt.Println("helloAop")

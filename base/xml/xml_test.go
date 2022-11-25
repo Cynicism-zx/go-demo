@@ -28,7 +28,8 @@ type Person struct {
 
 func TestXml(t *testing.T) {
 	addr := Address{City: "上海", State: "中国"}
-	p := &Person{Id: 13,
+	p := &Person{
+		Id:        13,
 		FirstName: "Pi",
 		LastName:  "bigstar",
 		Age:       20, Height: 17.8,
@@ -42,7 +43,7 @@ func TestXml(t *testing.T) {
 		log.Println("Error when marshal", err.Error())
 	}
 	t.Log(string(personXML))
-	//xml 文本转 对象
+	// xml 文本转 对象
 	obj := &Person{}
 	xml.Unmarshal(personXML, obj)
 	t.Logf("%+v", obj)

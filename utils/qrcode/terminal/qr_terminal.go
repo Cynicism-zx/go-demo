@@ -1,10 +1,11 @@
 package terminal
 
 import (
-	"github.com/mattn/go-colorable"
-	"github.com/mdp/qrterminal/v3"
 	"os"
 	"runtime"
+
+	"github.com/mattn/go-colorable"
+	"github.com/mdp/qrterminal/v3"
 )
 
 // 将二维码输出到控制台

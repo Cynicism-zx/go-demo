@@ -2,9 +2,10 @@ package template
 
 import (
 	"bytes"
-	"github.com/pkg/errors"
 	"go/format"
 	"text/template"
+
+	"github.com/pkg/errors"
 )
 
 // tpl 生成代码需要用到模板
@@ -28,7 +29,7 @@ func GetErrMsg(code string) string {
 
 // gen 生成代码
 func gen(comments map[string]string) ([]byte, error) {
-	var buf = bytes.NewBufferString("")
+	buf := bytes.NewBufferString("")
 
 	data := map[string]interface{}{
 		"pkg":      "main",

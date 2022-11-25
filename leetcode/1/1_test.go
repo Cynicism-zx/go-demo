@@ -1,8 +1,9 @@
 package main
 
 import (
-	"go-demo/leetcode/common/list"
 	"testing"
+
+	"go-demo/leetcode/common/list"
 )
 
 func TestMain(m *testing.M) {

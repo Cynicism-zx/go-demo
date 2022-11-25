@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"google.golang.org/grpc"
 	"io"
 	"log"
 	"net"
 	"net/http"
 	"net/rpc"
+
+	"google.golang.org/grpc"
 
 	"golang.org/x/net/context"
 	"golang.org/x/net/websocket"
@@ -100,8 +101,8 @@ func serveRPC(l net.Listener) {
 type grpcServer struct{}
 
 func (s *grpcServer) SayHello(ctx context.Context, in *grpchello.HelloRequest) (
-	*grpchello.HelloReply, error) {
-
+	*grpchello.HelloReply, error,
+) {
 	return &grpchello.HelloReply{Message: "Hello " + in.Name + " from cmux"}, nil
 }
 

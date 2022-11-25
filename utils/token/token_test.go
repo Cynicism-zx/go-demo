@@ -1,10 +1,11 @@
 package utils
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"go-demo/utils/seq"
 	"testing"
 	"time"
+
+	"github.com/dgrijalva/jwt-go"
+	"go-demo/utils/seq"
 )
 
 func TestToken(t *testing.T) {

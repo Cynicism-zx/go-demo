@@ -11,16 +11,14 @@ type Girl interface {
 }
 
 // 中国胖女孩
-type FatGirl struct {
-}
+type FatGirl struct{}
 
 func (FatGirl) weight() {
 	fmt.Println("chinese girl weight: 80kg")
 }
 
 // 瘦女孩
-type ThinGirl struct {
-}
+type ThinGirl struct{}
 
 func (ThinGirl) weight() {
 	fmt.Println("chinese girl weight: 50kg")
@@ -31,8 +29,7 @@ type Factory interface {
 }
 
 // 中国工厂
-type ChineseGirlFactory struct {
-}
+type ChineseGirlFactory struct{}
 
 func (ChineseGirlFactory) CreateGirl(like string) Girl {
 	if like == "fat" {
@@ -44,8 +41,7 @@ func (ChineseGirlFactory) CreateGirl(like string) Girl {
 }
 
 // 美国工厂
-type AmericanGirlFactory struct {
-}
+type AmericanGirlFactory struct{}
 
 func (AmericanGirlFactory) CreateGirl(like string) Girl {
 	if like == "fat" {
@@ -57,16 +53,14 @@ func (AmericanGirlFactory) CreateGirl(like string) Girl {
 }
 
 // 美国胖女孩
-type AmericanFatGirl struct {
-}
+type AmericanFatGirl struct{}
 
 func (AmericanFatGirl) weight() {
 	fmt.Println("American weight: 80kg")
 }
 
 // 美国瘦女孩
-type AmericanThainGirl struct {
-}
+type AmericanThainGirl struct{}
 
 func (AmericanThainGirl) weight() {
 	fmt.Println("American weight: 50kg")

@@ -11,7 +11,7 @@ import (
 )
 
 func GetQQInfo(t QQType) (*User, error) {
-	var user = &User{}
+	user := &User{}
 	user.Title = t.Title()
 	client := http.Client{}
 	// 1. 获取pt_local_token

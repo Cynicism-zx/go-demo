@@ -22,7 +22,7 @@ const (
 	URL = "https://pay.qun.qq.com/cgi-bin/group_pay/good_feeds/draw_lucky_gift"
 )
 
-//手动
+// 手动
 func main() {
 	now := time.Now()
 	date := now.Format("2006-01-02")

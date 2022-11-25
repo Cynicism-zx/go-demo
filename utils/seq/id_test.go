@@ -3,9 +3,10 @@ package seq
 import (
 	"context"
 	"encoding/json"
+	"testing"
+
 	"github.com/sony/sonyflake"
 	"google.golang.org/grpc/metadata"
-	"testing"
 )
 
 // 利用雪花算法生成不重复ID
@@ -19,7 +20,7 @@ func TestID(t *testing.T) {
 	t.Log(string(body))
 }
 
-//根据上下文生成带前缀的ID
+// 根据上下文生成带前缀的ID
 func TestNextID(t *testing.T) {
 	ctx := metadata.NewIncomingContext(context.Background(), metadata.Pairs(IdPrefixKey, "P66-"))
 	id := NextID(ctx)

@@ -1,8 +1,9 @@
 package code
 
 import (
-	"github.com/dchest/captcha"
 	"os"
+
+	"github.com/dchest/captcha"
 )
 
 func GenCodeImage(length int) error {

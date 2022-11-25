@@ -28,7 +28,6 @@ func TestMqtt(t *testing.T) {
 				fmt.Printf("接收到消息: %+v \n", msg)
 				wg.Done()
 			}, 1, "mqtt")
-
 			if err != nil {
 				panic(err)
 			}

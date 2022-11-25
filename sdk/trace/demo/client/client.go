@@ -3,12 +3,13 @@ package main
 import (
 	"context"
 	"fmt"
+	"io/ioutil"
+	"net/http"
+
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 	"github.com/opentracing/opentracing-go/log"
 	"go-demo/sdk/trace/demo"
-	"io/ioutil"
-	"net/http"
 )
 
 const URL = "http://localhost:8081/hello"

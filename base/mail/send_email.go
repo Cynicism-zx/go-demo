@@ -14,7 +14,6 @@ const (
 
 // 发送邮件
 func SendEmail() {
-
 	auth := smtp.PlainAuth("", username, password, host)
 
 	user := "741047261@qq.com"

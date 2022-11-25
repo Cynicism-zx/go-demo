@@ -1,9 +1,10 @@
 package decorator
 
 import (
-	"go-demo/utils/env"
 	"net/http"
 	"testing"
+
+	"go-demo/utils/env"
 )
 
 func TestAuth(t *testing.T) {

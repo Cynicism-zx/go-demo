@@ -5,13 +5,16 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/google/wire"
 )
 
-type LevelName string
-type MonitorName string
-type MonitorBlood int
-type MapSize int
+type (
+	LevelName    string
+	MonitorName  string
+	MonitorBlood int
+	MapSize      int
+)
 
 // 关卡
 type Level struct {

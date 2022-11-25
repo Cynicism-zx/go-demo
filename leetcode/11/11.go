@@ -27,7 +27,7 @@ func getMoney(m int, n int) int {
 	if n == 1 {
 		return m
 	}
-	//区间 [1, 剩余金额/人数的两倍-1)
+	// 区间 [1, 剩余金额/人数的两倍-1)
 	t := rand.Intn(m/n*2-1) + 1
 	return t
 }

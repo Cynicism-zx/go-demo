@@ -2,10 +2,11 @@ package main
 
 import (
 	"context"
+	"time"
+
 	"github.com/dgrijalva/jwt-go"
 	"go-demo/utils/token"
 	"google.golang.org/grpc/metadata"
-	"time"
 )
 
 // 为Context 设值 和取值
@@ -17,7 +18,6 @@ const (
 
 // 将token放到上下文中
 func mockTokenContext(tokenKey string) context.Context {
-
 	// 生成token
 	claims := make(jwt.MapClaims)
 	claims[tokenKey] = time.Now().Add(time.Hour * time.Duration(1)).Unix()

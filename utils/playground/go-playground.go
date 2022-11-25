@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	zh "github.com/go-playground/locales/zh"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
@@ -66,7 +67,7 @@ func validateStruct() {
 		fmt.Printf("uni.GetTranslator(%s) failed \n", "zh")
 		return
 	}
-	//验证器注册翻译器
+	// 验证器注册翻译器
 	if err := zh_translations.RegisterDefaultTranslations(validate, trans); err != nil {
 		fmt.Printf("注册中文翻译失败 err:%s \n", err.Error())
 		return
@@ -100,7 +101,6 @@ func validateStruct() {
 }
 
 func validateVariable() {
-
 	myEmail := "joeybloggs.gmail.com"
 
 	errs := validate.Var(myEmail, "required,email")

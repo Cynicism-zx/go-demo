@@ -1,9 +1,10 @@
 package middleware
 
 import (
-	"golang.org/x/time/rate"
 	"net/http"
 	"sync"
+
+	"golang.org/x/time/rate"
 )
 
 /**

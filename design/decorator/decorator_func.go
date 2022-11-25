@@ -16,7 +16,6 @@ func Auth(h http.HandlerFunc) http.HandlerFunc {
 		} else {
 			w.WriteHeader(403)
 		}
-
 	}
 }
 

@@ -6,7 +6,7 @@ import (
 
 var Hello = helloApi{}
 
-type helloApi struct {}
+type helloApi struct{}
 
 // Index is a demonstration route handler for output "Hello World!".
 func (*helloApi) Index(r *ghttp.Request) {

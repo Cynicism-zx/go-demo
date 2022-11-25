@@ -29,10 +29,10 @@ func FileUploader() {
 // 删除文件
 func FilesDelete() {
 	ctx := context.Background()
-	//删除一个文件
+	// 删除一个文件
 	_ = client.RemoveObject(ctx, bucketName, objectName, minio.RemoveObjectOptions{GovernanceBypass: true})
 
-	//批量删除文件
+	// 批量删除文件
 	objectsCh := make(chan minio.ObjectInfo)
 	go func() {
 		defer close(objectsCh)

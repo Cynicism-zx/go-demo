@@ -7,8 +7,9 @@ import (
 	"crypto/md5"
 	"crypto/rand"
 	"errors"
-	"golang.org/x/crypto/pbkdf2"
 	"hash"
+
+	"golang.org/x/crypto/pbkdf2"
 )
 
 const (
@@ -18,9 +19,7 @@ const (
 	Pkcs5DefaultMagic = "Salted__"
 )
 
-var (
-	ErrKeyLength = errors.New("the key length is illegal")
-)
+var ErrKeyLength = errors.New("the key length is illegal")
 
 func AesEncryptWithSalt(plaintext, key []byte, iterCount int, magic string, h func() hash.Hash) (dst []byte, err error) {
 	if iterCount <= 0 {
@@ -34,8 +33,8 @@ func AesEncryptWithSalt(plaintext, key []byte, iterCount int, magic string, h fu
 	salt := make([]byte, Pkcs5SaltLength)
 	_, err = rand.Read(salt)
 
-	var sKey = pbkdf2.Key(key, salt, iterCount, len(key), h)
-	var sIV = pbkdf2.Key(sKey, salt, iterCount, EvpMaxIvLength, h)
+	sKey := pbkdf2.Key(key, salt, iterCount, len(key), h)
+	sIV := pbkdf2.Key(sKey, salt, iterCount, EvpMaxIvLength, h)
 
 	dst, err = AesCbcDecrypt(plaintext, sKey, sIV)
 
@@ -67,32 +66,32 @@ func AesCbcEncrypt(plaintext, key, iv []byte) ([]byte, error) {
 		return nil, ErrKeyLength
 	}
 
-	var block, err = aes.NewCipher(key)
+	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
-	var blockSize = block.BlockSize()
+	blockSize := block.BlockSize()
 	iv = iv[:blockSize]
 
-	var src = PKCS7Padding(plaintext, blockSize)
-	var dst = make([]byte, len(src))
+	src := PKCS7Padding(plaintext, blockSize)
+	dst := make([]byte, len(src))
 
-	var mode = cipher.NewCBCEncrypter(block, iv)
+	mode := cipher.NewCBCEncrypter(block, iv)
 	mode.CryptBlocks(dst, src)
 	return dst, nil
 }
 
 func AesCbcDecrypt(cipherText, key, iv []byte) ([]byte, error) {
-	var block, err = aes.NewCipher(key)
+	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
-	var blockSize = block.BlockSize()
+	blockSize := block.BlockSize()
 	iv = iv[:blockSize]
 
-	var dst = make([]byte, len(cipherText))
+	dst := make([]byte, len(cipherText))
 
-	var mode = cipher.NewCBCDecrypter(block, iv)
+	mode := cipher.NewCBCDecrypter(block, iv)
 	mode.CryptBlocks(dst, cipherText)
 	dst = PKCS7UnPadding(dst)
 	return dst, nil
@@ -100,43 +99,43 @@ func AesCbcDecrypt(cipherText, key, iv []byte) ([]byte, error) {
 
 // CFB模式
 func AesCfbEncrypt(plaintext, key, iv []byte) ([]byte, error) {
-	var block, err = aes.NewCipher(key)
+	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
-	var blockSize = block.BlockSize()
+	blockSize := block.BlockSize()
 	iv = iv[:blockSize]
 
-	var dst = make([]byte, len(plaintext))
+	dst := make([]byte, len(plaintext))
 
-	var mode = cipher.NewCFBEncrypter(block, iv)
+	mode := cipher.NewCFBEncrypter(block, iv)
 	mode.XORKeyStream(dst, plaintext)
 	return dst, nil
 }
 
 func AesCfbDecrypt(cipherText, key, iv []byte) ([]byte, error) {
-	var block, err = aes.NewCipher(key)
+	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
 	}
-	var blockSize = block.BlockSize()
+	blockSize := block.BlockSize()
 	iv = iv[:blockSize]
 
-	var dst = make([]byte, len(cipherText))
+	dst := make([]byte, len(cipherText))
 
-	var mode = cipher.NewCFBDecrypter(block, iv)
+	mode := cipher.NewCFBDecrypter(block, iv)
 	mode.XORKeyStream(dst, cipherText)
 	return dst, nil
 }
 
 func PKCS7Padding(text []byte, blockSize int) []byte {
-	var diff = blockSize - len(text)%blockSize
-	var paddingText = bytes.Repeat([]byte{byte(diff)}, diff)
+	diff := blockSize - len(text)%blockSize
+	paddingText := bytes.Repeat([]byte{byte(diff)}, diff)
 	return append(text, paddingText...)
 }
 
 func PKCS7UnPadding(text []byte) []byte {
-	var length = len(text)
-	var unPadding = int(text[length-1])
+	length := len(text)
+	unPadding := int(text[length-1])
 	return text[:(length - unPadding)]
 }

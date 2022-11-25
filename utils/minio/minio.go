@@ -22,7 +22,8 @@ var (
 func main() {
 	client, err = minio.New(endpoint, &minio.Options{
 		Creds:  credentials.NewStaticV4(accessKeyID, secretAccessKey, ""),
-		Secure: useSSL})
+		Secure: useSSL,
+	})
 	if err != nil {
 		log.Fatalln("minio连接错误: ", err)
 	}

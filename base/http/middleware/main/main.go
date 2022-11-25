@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go-demo/base/http/middleware"
 	"net/http"
+
+	"go-demo/base/http/middleware"
 )
 
 func main() {

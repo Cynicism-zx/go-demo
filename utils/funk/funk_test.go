@@ -1,8 +1,9 @@
 package funk
 
 import (
-	"github.com/thoas/go-funk"
 	"testing"
+
+	"github.com/thoas/go-funk"
 )
 
 // go-funk is a modern Go library based on reflect.

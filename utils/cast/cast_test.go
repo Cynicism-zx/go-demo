@@ -2,8 +2,9 @@ package cast
 
 import (
 	"fmt"
-	"github.com/spf13/cast"
 	"testing"
+
+	"github.com/spf13/cast"
 )
 
 // https://darjun.github.io/2020/01/20/godailylib/cast/

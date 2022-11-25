@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/bits-and-blooms/bitset"
 	"math/rand"
+
+	"github.com/bits-and-blooms/bitset"
 )
 
 // https://github.com/bits-and-blooms/bitset

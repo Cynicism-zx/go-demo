@@ -20,8 +20,8 @@ func main() {
 // 为了保证左右字符种类完全相同，那么只能取 [maxL1, minR1] 之间
 // 一共有 minR1 - maxL1 种切分方式
 func findStrCutNum(s string) int {
-	var maxL int      // 保存最大左边界
-	var minR = len(s) // 保存最小右边界
+	var maxL int   // 保存最大左边界
+	minR := len(s) // 保存最小右边界
 
 	sL := make(map[string]int) // 字符第一次出现的位置
 	sR := make(map[string]int) // 字符最后一次出现的位置

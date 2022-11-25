@@ -2,10 +2,11 @@ package xlsxkit
 
 import (
 	"fmt"
-	jsoniter "github.com/json-iterator/go"
-	"github.com/json-iterator/go/extra"
 	"reflect"
 	"strings"
+
+	jsoniter "github.com/json-iterator/go"
+	"github.com/json-iterator/go/extra"
 
 	"github.com/xuri/excelize"
 )
@@ -56,7 +57,6 @@ func RefactorWrite(records []*Record) error {
 
 // 写内容到xlsx
 func WriteXlsx() error {
-
 	xlsx := excelize.NewFile()
 	index := xlsx.NewSheet("Sheet1")
 	xlsx.SetCellValue("Sheet1", "A1", "姓名") // 第一行 第一列
@@ -140,9 +140,7 @@ func getColumnJson(model interface{}) map[string]string {
 	columnJson := make(map[string]string)
 	d := reflect.TypeOf(model).Elem().Elem()
 	for j := 0; j < d.NumField(); j++ {
-		var (
-			columnName string
-		)
+		var columnName string
 		columns := strings.Split(d.Field(j).Tag.Get("xlsx"), "-")
 		if len(columns) == 2 {
 			columnName = columns[1]

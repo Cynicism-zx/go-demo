@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/koding/multiconfig"
 	"testing"
+
+	"github.com/koding/multiconfig"
 )
 
 type Server struct {
@@ -14,7 +15,6 @@ type Server struct {
 
 // supports TOML, JSON and YAML
 func TestReadConfig(t *testing.T) {
-
 	m := multiconfig.NewWithPath("config.toml")
 	serverConf := new(Server)
 

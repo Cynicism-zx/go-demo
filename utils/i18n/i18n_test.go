@@ -1,9 +1,10 @@
 package i18n
 
 import (
-	"go-demo/utils/i18n/locales"
 	"io/ioutil"
 	"testing"
+
+	"go-demo/utils/i18n/locales"
 )
 
 func TestLoadYaml(t *testing.T) {

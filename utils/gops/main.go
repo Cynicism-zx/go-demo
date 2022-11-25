@@ -26,7 +26,7 @@ func main() {
 	RAMCheck()
 }
 
-//服务器硬盘使用量
+// 服务器硬盘使用量
 func DiskCheck() {
 	u, _ := disk.Usage("/")
 	usedMB := int(u.Used) / MB
@@ -37,12 +37,12 @@ func DiskCheck() {
 	fmt.Printf("Free space: %dMB (%dGB) / %dMB (%dGB) | Used: %d%%\n", usedMB, usedGB, totalMB, totalGB, usedPercent)
 }
 
-//OS
+// OS
 func OSCheck() {
 	fmt.Printf("Os:%s, compiler:%s, numCpu:%d, version:%s, numGoroutine:%d\n", runtime.GOOS, runtime.Compiler, runtime.NumCPU(), runtime.Version(), runtime.NumGoroutine())
 }
 
-//CPU 使用量
+// CPU 使用量
 func CPUCheck() {
 	cores, _ := cpu.Counts(false)
 
@@ -62,7 +62,7 @@ func CPUCheck() {
 	fmt.Println(cores)
 }
 
-//内存使用量
+// 内存使用量
 func RAMCheck() {
 	u, _ := mem.VirtualMemory()
 	usedMB := int(u.Used) / MB

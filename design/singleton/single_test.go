@@ -5,7 +5,7 @@ import "testing"
 // Go语言模式
 func TestGoSingleton(t *testing.T) {
 	instance1 := GoInstance()
-	//查看其内存地址
+	// 查看其内存地址
 	t.Logf("%p", instance1)
 
 	instance2 := GoInstance()
@@ -15,7 +15,7 @@ func TestGoSingleton(t *testing.T) {
 // 传统模式
 func TestSingleton(t *testing.T) {
 	instance1 := GetInstance("pibigstar")
-	//查看其内存地址
+	// 查看其内存地址
 	t.Logf("%p", instance1)
 
 	instance2 := GetInstance("pibigstar")

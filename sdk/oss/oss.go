@@ -2,8 +2,9 @@ package oss
 
 import (
 	"fmt"
-	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 	"io"
+
+	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 )
 
 var client *ossClient

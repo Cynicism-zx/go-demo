@@ -27,9 +27,7 @@ const (
 	UserId    = "pibigstar"
 )
 
-var (
-	srv *server.Server
-)
+var srv *server.Server
 
 func main() {
 	mgr := manage.NewDefaultManager()

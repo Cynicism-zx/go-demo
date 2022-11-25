@@ -91,7 +91,7 @@ func (p *Pool) Put(task *Task) error {
 func (p *Pool) Close() {
 	p.status = STOP
 
-	//阻塞等待所有task被消费
+	// 阻塞等待所有task被消费
 	for len(p.taskQueue) > 0 {
 	}
 

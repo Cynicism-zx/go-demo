@@ -2,10 +2,11 @@ package demo
 
 import (
 	"fmt"
+	"io"
+
 	"github.com/opentracing/opentracing-go"
 	"github.com/uber/jaeger-client-go"
 	"github.com/uber/jaeger-client-go/config"
-	"io"
 )
 
 func NewTracer(serviceName string) (opentracing.Tracer, io.Closer) {

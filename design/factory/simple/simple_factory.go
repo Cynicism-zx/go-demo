@@ -9,23 +9,20 @@ type Girl interface {
 }
 
 // 胖女孩
-type FatGirl struct {
-}
+type FatGirl struct{}
 
 func (FatGirl) weight() {
 	fmt.Println("80kg")
 }
 
 // 瘦女孩
-type ThinGirl struct {
-}
+type ThinGirl struct{}
 
 func (ThinGirl) weight() {
 	fmt.Println("50kg")
 }
 
-type GirlFactory struct {
-}
+type GirlFactory struct{}
 
 func (*GirlFactory) CreateGirl(like string) Girl {
 	if like == "fat" {

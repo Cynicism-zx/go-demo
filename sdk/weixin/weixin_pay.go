@@ -120,6 +120,7 @@ func createUnifyOrder(amount int32, openId, tradeType string) (*UnifyOrderRespon
 	createOrder(bodyData.OutTradeNo, amount)
 	return uoResp, nil
 }
+
 func createOrder(outTradeNo string, amount int32) {
 	// 将此订单存储到数据库中
 	fmt.Printf("save to db, outTradeNo: %s, amount: %d", outTradeNo, amount)

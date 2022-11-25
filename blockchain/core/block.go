@@ -16,7 +16,6 @@ type Block struct {
 	Hash          string `json:"hash"`      // 当前区块的Hash值
 	Timestamp     int64  `json:"timestamp"` // 时间戳
 	PrevBlockHash string `json:"pervHash"`  // 上一个区块的Hash值
-
 }
 
 /**

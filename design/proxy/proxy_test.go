@@ -3,7 +3,6 @@ package proxy
 import "testing"
 
 func TestProxy(t *testing.T) {
-
 	station := &Station{3}
 	proxy := &StationProxy{station}
 	station.sell("小华")

@@ -1,8 +1,9 @@
 package file
 
 import (
-	"go-demo/utils/env"
 	"testing"
+
+	"go-demo/utils/env"
 )
 
 func TestMain(m *testing.M) {

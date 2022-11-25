@@ -11,8 +11,10 @@ import (
 	"time"
 )
 
-var wg sync.WaitGroup
-var httpClient = &http.Client{Timeout: 30 * time.Second}
+var (
+	wg         sync.WaitGroup
+	httpClient = &http.Client{Timeout: 30 * time.Second}
+)
 
 func SleepSomeTime() time.Duration {
 	return time.Microsecond * time.Duration(rand.Int()%10)
@@ -38,7 +40,7 @@ func convert(readChan chan int, output chan string) {
 
 func outputStr(output chan string) {
 	defer wg.Done()
-	for _ = range output {
+	for range output {
 		// do nothing
 		SleepSomeTime()
 	}

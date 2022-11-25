@@ -3,7 +3,6 @@ package abstract
 import "testing"
 
 func TestAbstractFactory(t *testing.T) {
-
 	store := new(GirlFactoryStore)
 	// 提供美国工厂
 	store.factory = new(AmericanGirlFactory)

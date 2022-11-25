@@ -1,8 +1,9 @@
 package main
 
 import (
-	"go-demo/leetcode/common/tree"
 	"testing"
+
+	"go-demo/leetcode/common/tree"
 )
 
 func TestKthSmallest(t *testing.T) {

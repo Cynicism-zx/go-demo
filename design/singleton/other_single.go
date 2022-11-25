@@ -2,7 +2,7 @@ package singleton
 
 import "sync"
 
-//传统方式实现单例模式
+// 传统方式实现单例模式
 var (
 	instance *Instance
 	lock     sync.Mutex

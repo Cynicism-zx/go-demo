@@ -3,9 +3,10 @@ package mysql
 import (
 	"database/sql"
 	"fmt"
+	"os"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"os"
 )
 
 var (
@@ -24,7 +25,7 @@ func init() {
 	}
 }
 
-//使用gorm链接mysql
+// 使用gorm链接mysql
 func GetGormDB() (*gorm.DB, error) {
 	dns := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true&loc=Local&charset=utf8mb4,utf8",
 		user, password, host, port, db)

@@ -4,8 +4,10 @@ import (
 	"fmt"
 )
 
-var path []int
-var result [][]int
+var (
+	path   []int
+	result [][]int
+)
 
 // 找出1...n 之间的所有子集
 // 回溯算法

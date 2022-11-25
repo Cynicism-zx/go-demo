@@ -13,7 +13,7 @@ func Test1(t *testing.T) {
 	defer func() { fmt.Println("打印前") }()
 	defer func() { fmt.Println("打印中") }()
 	defer func() { fmt.Println("打印后") }()
-	//panic("触发异常")
+	// panic("触发异常")
 }
 
 func Test2(t *testing.T) {
@@ -102,6 +102,7 @@ func Test20(t *testing.T) {
 func f(i int) {
 	fmt.Println(i)
 }
+
 func Test22(t *testing.T) {
 	i := 5
 	defer f(i)
@@ -140,6 +141,7 @@ func Test28(t *testing.T) {
 	fmt.Println(cap(b))
 	fmt.Println(cap(c))
 }
+
 func increaseA() int {
 	var i int
 	defer func() {
@@ -251,6 +253,7 @@ const (
 	a = iota
 	b = iota
 )
+
 const (
 	name  = "name"
 	name2 = "name"
@@ -272,7 +275,6 @@ type People interface {
 type Student struct{}
 
 func (stu *Student) Show() {
-
 }
 
 func Test40(t *testing.T) {
@@ -312,7 +314,7 @@ type Square struct {
 }
 
 var m = map[string]Square{
-	"foo": Square{2, 3},
+	"foo": {2, 3},
 }
 
 func Test42(t *testing.T) {
@@ -331,8 +333,8 @@ func foo() (*int, error) {
 }
 
 func bar() {
-	//panic, p nil
-	//fmt.Println(*p)
+	// panic, p nil
+	// fmt.Println(*p)
 }
 
 func Test43(t *testing.T) {
@@ -354,7 +356,7 @@ func Test44(t *testing.T) {
 }
 
 func Test45(t *testing.T) {
-	var m = [...]int{1, 2, 3}
+	m := [...]int{1, 2, 3}
 
 	for i, v := range m {
 		go func() {
@@ -385,7 +387,7 @@ func Test46(t *testing.T) {
 }
 
 func Test47(t *testing.T) {
-	var a = [5]int{1, 2, 3, 4, 5}
+	a := [5]int{1, 2, 3, 4, 5}
 	var r [5]int
 
 	for i, v := range a {
@@ -415,7 +417,7 @@ func Test48(t *testing.T) {
 
 func Benchmark49(t *testing.B) {
 	for i := 0; i < t.N; i++ {
-		var m = map[string]int{
+		m := map[string]int{
 			"A": 21,
 			"B": 22,
 			"C": 23,
@@ -481,13 +483,14 @@ func Foo(x interface{}) {
 	}
 	fmt.Println("non-empty interface")
 }
+
 func Test64(t *testing.T) {
 	var x *int = nil
 	Foo(x)
 }
 
 func Test67(t *testing.T) {
-	var x = []int{2: 2, 3, 0: 1}
+	x := []int{2: 2, 3, 0: 1}
 	fmt.Println(x)
 }
 
@@ -495,6 +498,7 @@ func incr(p *int) int {
 	*p++
 	return *p
 }
+
 func Test68(t *testing.T) {
 	v := 1
 	incr(&v)
@@ -502,8 +506,8 @@ func Test68(t *testing.T) {
 }
 
 func Test69(t *testing.T) {
-	var a = []int{1, 2, 3, 4, 5}
-	var r = make([]int, 0)
+	a := []int{1, 2, 3, 4, 5}
+	r := make([]int, 0)
 
 	for i, v := range a {
 		if i == 0 {
@@ -569,21 +573,21 @@ func Test78(t *testing.T) {
 }
 
 func Test79(t *testing.T) {
-	var k = 1
-	var s = []int{1, 2}
+	k := 1
+	s := []int{1, 2}
 	k, s[k] = 0, 3
 	fmt.Println(s[0] + s[1])
 }
 
 func Test80(t *testing.T) {
-	//nil := 123
-	//fmt.Println(nil)
-	//var _ map[string]int = nil
+	// nil := 123
+	// fmt.Println(nil)
+	// var _ map[string]int = nil
 }
 
 func Test81(t *testing.T) {
 	var x int8 = -128
-	var y = x / -1
+	y := x / -1
 	fmt.Println(y)
 }
 

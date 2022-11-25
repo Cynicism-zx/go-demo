@@ -4,9 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/hibiken/asynq"
 	"log"
 	"time"
+
+	"github.com/hibiken/asynq"
 )
 
 // A list of task types.

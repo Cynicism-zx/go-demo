@@ -3,11 +3,12 @@ package elastic
 import (
 	"context"
 	"fmt"
-	"github.com/olivere/elastic"
 	"log"
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/olivere/elastic"
 
 	"github.com/olivere/elastic/v7"
 )

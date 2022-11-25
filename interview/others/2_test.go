@@ -22,8 +22,8 @@ func parseStudent() map[string]*student {
 		{Name: "li", Age: 23},
 		{Name: "wang", Age: 22},
 	}
-	//for遍历时，变量stu指针不变
-	//最终将所有值都指向同一个指针（最后一个）
+	// for遍历时，变量stu指针不变
+	// 最终将所有值都指向同一个指针（最后一个）
 	for _, stu := range stus {
 		m[stu.Name] = &stu
 	}
@@ -46,7 +46,7 @@ func parseStudentTrue() map[string]*student {
 		{Name: "li", Age: 23},
 		{Name: "wang", Age: 22},
 	}
-	//用中间变量来过渡它
+	// 用中间变量来过渡它
 	for _, stu := range stus {
 		s := stu
 		m[stu.Name] = &s

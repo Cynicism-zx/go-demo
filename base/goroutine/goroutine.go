@@ -12,7 +12,7 @@ import (
 func GetWithTimeout(d time.Duration) (string, error) {
 	ret := make(chan string)
 	go func() {
-		//do something
+		// do something
 		time.Sleep(d)
 		ret <- "Hello"
 	}()
@@ -34,7 +34,7 @@ func GetOne() string {
 			ret <- fmt.Sprintf("%d : I get the result", i)
 		}(i)
 	}
-	//当ret中一有结果，就直接返回了
+	// 当ret中一有结果，就直接返回了
 	return <-ret
 }
 
@@ -75,7 +75,7 @@ func GetAllWithGroup() string {
 
 // 取消任务
 func CancelTask() {
-	//取消任务标识通道
+	// 取消任务标识通道
 	cancel := make(chan struct{})
 	for i := 0; i < 5; i++ {
 		go func(i int, cancel chan struct{}) {
@@ -88,8 +88,8 @@ func CancelTask() {
 			fmt.Println(i, ":Canceled")
 		}(i, cancel)
 	}
-	//当关闭通道，那么所有的goroutine都可以监听到
-	//如果仅仅是往这个通道发信息，那么只会有一个goroutine被取消
+	// 当关闭通道，那么所有的goroutine都可以监听到
+	// 如果仅仅是往这个通道发信息，那么只会有一个goroutine被取消
 	close(cancel)
 	time.Sleep(time.Millisecond * 20)
 }
@@ -119,7 +119,7 @@ func CancelAllTask() {
 			fmt.Println(i, ":Canceled")
 		}(i, ctx)
 	}
-	//取消全部任务
+	// 取消全部任务
 	cancelFunc()
 	time.Sleep(time.Millisecond * 20)
 }

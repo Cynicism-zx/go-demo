@@ -2,8 +2,9 @@ package mq
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
 	"log"
+
+	"github.com/pkg/errors"
 
 	"github.com/streadway/amqp"
 )
@@ -69,7 +70,7 @@ func (client *amqpClient) PublishText(exchange, routingkey string, msg []byte) e
 // 为了通过CI，这里把init方法给注释掉了
 // 如果想运行请记得去掉注释
 func init() {
-	//initChannel()
+	// initChannel()
 }
 
 // monitor the chanel and process the message
@@ -86,7 +87,7 @@ func (client *amqpClient) StartConsume(qName, cName string, callback func(msg []
 		for msg := range msgs {
 			processSuc := callback(msg.Body)
 			if !processSuc {
-				//TODO：没有执行成功，写到另一个队列，用于异常情况的重试
+				// TODO：没有执行成功，写到另一个队列，用于异常情况的重试
 
 			}
 		}

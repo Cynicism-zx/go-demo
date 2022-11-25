@@ -1,10 +1,11 @@
 package dynamic
 
 import (
-	"bou.ke/monkey"
 	"fmt"
 	"reflect"
 	"regexp"
+
+	"bou.ke/monkey"
 )
 
 // go动态代理 [https://blog.csdn.net/sqxww123/article/details/101777075]
@@ -29,7 +30,7 @@ func NewJoinPoint(receiver interface{}, params []reflect.Value, method reflect.M
 	nout := fnType.NumOut()
 	point.Result = make([]reflect.Value, nout)
 	for i := 0; i < nout; i++ {
-		//默认返回空值
+		// 默认返回空值
 		point.Result[i] = reflect.Zero(fnType.Out(i))
 	}
 
@@ -57,10 +58,10 @@ func RegisterPoint(pointType reflect.Type) {
 	}
 	for i := 0; i < pointType.NumMethod(); i++ {
 		method := pointType.Method(i)
-		//方法位置字符串"包名.接收者.方法名"，用于匹配代理
+		// 方法位置字符串"包名.接收者.方法名"，用于匹配代理
 		methodLocation := fmt.Sprintf("%s.%s.%s", pkgPth, receiverName, method.Name)
 		var guard *monkey.PatchGuard
-		var proxy = func(in []reflect.Value) []reflect.Value {
+		proxy := func(in []reflect.Value) []reflect.Value {
 			guard.Unpatch()
 			defer guard.Restore()
 			receiver := in[0]
@@ -73,9 +74,9 @@ func RegisterPoint(pointType reflect.Type) {
 			afterProcessed(point, methodLocation)
 			return point.Result
 		}
-		//动态创建代理函数
+		// 动态创建代理函数
 		proxyFn := reflect.MakeFunc(method.Func.Type(), proxy)
-		//利用monkey框架替换代理函数
+		// 利用monkey框架替换代理函数
 		guard = monkey.PatchInstanceMethod(pointType, method.Name, proxyFn.Interface())
 	}
 }
@@ -121,7 +122,7 @@ func finallyProcessed(point *JoinPoint, methodLocation string) {
 }
 
 func isAspectMatch(aspectExpress, methodLocation string) bool {
-	//aspectExpress采用正则表达式
+	// aspectExpress采用正则表达式
 	pattern, err := regexp.Compile(aspectExpress)
 	if err != nil {
 		return false

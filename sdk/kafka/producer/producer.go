@@ -42,5 +42,4 @@ func main() {
 		}
 		fmt.Printf("Partion = %d, offset = %d\n", paritition, offset)
 	}
-
 }

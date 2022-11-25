@@ -3,9 +3,10 @@ package hystrix
 import (
 	"errors"
 	"fmt"
-	"github.com/afex/hystrix-go/hystrix"
 	"testing"
 	"time"
+
+	"github.com/afex/hystrix-go/hystrix"
 )
 
 func TestHystrix(t *testing.T) {

@@ -1,9 +1,10 @@
 package zerolog
 
 import (
+	"testing"
+
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"testing"
 )
 
 // zerolog只专注于记录 JSON 格式的日志，号称 0 内存分配

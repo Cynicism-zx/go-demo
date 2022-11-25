@@ -3,6 +3,7 @@ package copy
 import (
 	"bytes"
 	"encoding/gob"
+
 	"github.com/jinzhu/copier"
 )
 

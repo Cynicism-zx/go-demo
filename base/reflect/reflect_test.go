@@ -55,8 +55,7 @@ func TestInterface(t *testing.T) {
 
 // 反射基本操作
 func TestReflect(t *testing.T) {
-
-	var str = "hello world"
+	str := "hello world"
 
 	v := reflect.ValueOf(str)
 	// 获取值

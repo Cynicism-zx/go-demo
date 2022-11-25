@@ -2,9 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"go-demo/blockchain/core"
 	"io"
 	"net/http"
+
+	"go-demo/blockchain/core"
 )
 
 type BlockChainResponse struct {
@@ -33,7 +34,6 @@ func WriteBlockChain(writer http.ResponseWriter, request *http.Request) {
 	bcr.BlockChain.SendData(data)
 	bcr.Total = len(bcr.BlockChain.Blocks)
 	GetBlockChain(writer, request)
-
 }
 
 func GetBlockChain(w http.ResponseWriter, r *http.Request) {

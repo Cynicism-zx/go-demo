@@ -2,8 +2,9 @@ package ldap
 
 import (
 	"fmt"
-	"github.com/go-ldap/ldap"
 	"strings"
+
+	"github.com/go-ldap/ldap"
 )
 
 const (

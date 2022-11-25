@@ -7,15 +7,13 @@ type Customer interface {
 	update()
 }
 
-type CustomerA struct {
-}
+type CustomerA struct{}
 
 func (*CustomerA) update() {
 	fmt.Println("我是客户A, 我收到报纸了")
 }
 
-type CustomerB struct {
-}
+type CustomerB struct{}
 
 func (*CustomerB) update() {
 	fmt.Println("我是客户B, 我收到报纸了")

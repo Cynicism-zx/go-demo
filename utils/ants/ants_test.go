@@ -2,10 +2,11 @@ package ants
 
 import (
 	"fmt"
-	"github.com/panjf2000/ants/v2"
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/panjf2000/ants/v2"
 )
 
 var runTimes = 1000
@@ -62,7 +63,6 @@ func TestPoolWithFunc(t *testing.T) {
 }
 
 func TestWithOptions(t *testing.T) {
-
 	p, _ := ants.NewPool(3, ants.WithExpiryDuration(time.Second*1))
 	defer p.Release()
 

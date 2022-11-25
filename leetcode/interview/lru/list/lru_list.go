@@ -107,7 +107,7 @@ func (l *LRUList) insertToFirst(node *Node) {
 
 func (l *LRUList) Keys() []interface{} {
 	var keys []interface{}
-	var last = l.last
+	last := l.last
 	for last != nil {
 		keys = append(keys, last.key)
 		last = last.prev

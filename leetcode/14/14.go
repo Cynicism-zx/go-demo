@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go-demo/leetcode/common/tree"
 	"math"
+
+	"go-demo/leetcode/common/tree"
 )
 
 // 二叉树最小深度

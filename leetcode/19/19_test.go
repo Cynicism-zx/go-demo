@@ -1,8 +1,9 @@
 package main
 
 import (
-	"go-demo/leetcode/common/tree"
 	"testing"
+
+	"go-demo/leetcode/common/tree"
 )
 
 // 统计树有多少个节点

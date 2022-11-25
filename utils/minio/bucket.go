@@ -8,8 +8,10 @@ import (
 	"github.com/minio/minio-go/v7"
 )
 
-var bucketName = "picture"
-var objectName = "pic.jpg"
+var (
+	bucketName = "picture"
+	objectName = "pic.jpg"
+)
 
 // 创建桶
 func createBucket() error {

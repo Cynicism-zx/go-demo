@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/allegro/bigcache/v3"
 	"time"
+
+	"github.com/allegro/bigcache/v3"
 )
 
 var cache *bigcache.BigCache

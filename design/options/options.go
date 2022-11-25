@@ -44,7 +44,6 @@ func WithCaching(cache bool) Option {
 
 // Connect creates a connection.
 func Connect(addr string, opts ...Option) (*Connection, error) {
-
 	options := options{
 		timeout: defaultTimeout,
 		caching: defaultCaching,

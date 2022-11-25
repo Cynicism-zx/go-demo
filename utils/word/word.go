@@ -22,7 +22,6 @@ func ReplaceWord(file string) error {
 
 // https://github.com/unidoc/unioffice
 func ReplaceWithStyle(file string) error {
-
 	doc, err := document.Open(file)
 	if err != nil {
 		return err

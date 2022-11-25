@@ -2,9 +2,10 @@ package pool
 
 import (
 	"fmt"
-	"gopkg.in/go-playground/pool.v3"
 	"testing"
 	"time"
+
+	"gopkg.in/go-playground/pool.v3"
 )
 
 func SendMail(int int) pool.WorkFunc {
@@ -25,7 +26,6 @@ func SendMail(int int) pool.WorkFunc {
 }
 
 func pp() {
-
 }
 
 func TestPool(t *testing.T) {

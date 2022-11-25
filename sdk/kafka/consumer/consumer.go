@@ -7,9 +7,7 @@ import (
 	"github.com/Shopify/sarama"
 )
 
-var (
-	wg sync.WaitGroup
-)
+var wg sync.WaitGroup
 
 func main() {
 	consumer, err := sarama.NewConsumer([]string{"localhost:9092"}, nil)
@@ -37,5 +35,4 @@ func main() {
 		wg.Wait()
 		consumer.Close()
 	}
-
 }

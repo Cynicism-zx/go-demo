@@ -1,8 +1,9 @@
 package main
 
 import (
-	"go-demo/leetcode/common/list"
 	"sort"
+
+	"go-demo/leetcode/common/list"
 )
 
 // 链表反转

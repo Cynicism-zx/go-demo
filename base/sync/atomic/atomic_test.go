@@ -17,7 +17,7 @@ func TestAtomicValue(t *testing.T) {
 // 不使用原子操作做加减
 func TestNotUserAtomic(t *testing.T) {
 	// not use atomic
-	var sum = 10
+	sum := 10
 	var wg sync.WaitGroup
 	for i := 0; i < 10; i++ {
 		wg.Add(1)

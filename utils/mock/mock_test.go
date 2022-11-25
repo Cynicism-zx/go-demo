@@ -8,7 +8,6 @@ import (
 )
 
 func TestGetGoVersion(t *testing.T) {
-
 	// 1. 新建一个mock控制器
 	mockCtl := gomock.NewController(t)
 	defer mockCtl.Finish()

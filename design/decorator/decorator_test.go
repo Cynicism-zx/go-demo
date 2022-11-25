@@ -6,7 +6,6 @@ import (
 )
 
 func TestDecorator(t *testing.T) {
-
 	laowang := &laowang{}
 
 	jacket := &Jacket{}
@@ -18,5 +17,4 @@ func TestDecorator(t *testing.T) {
 	hat.show()
 
 	fmt.Println("cost:", hat.cost())
-
 }

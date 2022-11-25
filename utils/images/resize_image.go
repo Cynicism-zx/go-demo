@@ -45,5 +45,4 @@ func Resize(imagePath, targePath string, width, height uint) {
 	defer newFile.Close()
 
 	jpeg.Encode(newFile, newImg, nil)
-
 }

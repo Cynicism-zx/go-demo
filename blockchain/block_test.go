@@ -1,9 +1,10 @@
 package blockchain
 
 import (
-	"go-demo/blockchain/core"
 	"strconv"
 	"testing"
+
+	"go-demo/blockchain/core"
 )
 
 func TestBlock(t *testing.T) {
@@ -11,7 +12,6 @@ func TestBlock(t *testing.T) {
 }
 
 func TestBlockChain(t *testing.T) {
-
 	chain := core.NewBlockChain()
 	for i := 0; i < 10; i++ {
 		chain.SendData("block:" + strconv.Itoa(i))
@@ -20,5 +20,4 @@ func TestBlockChain(t *testing.T) {
 	for _, value := range chain.Blocks {
 		t.Logf("%+v", value)
 	}
-
 }

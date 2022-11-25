@@ -13,7 +13,7 @@ func main() {
 	var words []string
 	useHmm := true
 	x := gojieba.NewJieba()
-	//defer x.Free()
+	// defer x.Free()
 
 	s = "我来到北京清华大学"
 	words = x.CutAll(s)

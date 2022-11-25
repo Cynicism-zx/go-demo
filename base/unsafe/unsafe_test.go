@@ -13,7 +13,7 @@ func TestPointer(t *testing.T) {
 	i := 10  // 声明一个地址和数据
 	ip := &i // 取得这个数据的地址
 	// 将 *int 转为 *float64
-	var fp = (*float64)(unsafe.Pointer(ip)) // 把地址值给fp
+	fp := (*float64)(unsafe.Pointer(ip)) // 把地址值给fp
 	t.Logf("%p", &i)
 	*fp = *fp * 3    // 把地址值的数据乘以3
 	t.Logf("%p", fp) // float64

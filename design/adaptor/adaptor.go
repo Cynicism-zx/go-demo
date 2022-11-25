@@ -11,12 +11,12 @@ type MusicPlayer interface {
 
 // 在网上找的已实现好的库 音乐播放
 // ( 旧接口）
-type ExistPlayer struct {
-}
+type ExistPlayer struct{}
 
 func (*ExistPlayer) playMp3(fileName string) {
 	fmt.Println("play mp3 :", fileName)
 }
+
 func (*ExistPlayer) playWma(fileName string) {
 	fmt.Println("play wma :", fileName)
 }

@@ -3,13 +3,14 @@ package test
 import (
 	"context"
 	"fmt"
+	"runtime"
+	"testing"
+	"time"
+
 	"github.com/coreos/etcd/clientv3"
 	"github.com/coreos/etcd/clientv3/concurrency"
 	recipe "github.com/coreos/etcd/contrib/recipes"
 	"go-demo/utils/env"
-	"runtime"
-	"testing"
-	"time"
 )
 
 var (

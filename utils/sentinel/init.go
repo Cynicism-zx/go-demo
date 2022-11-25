@@ -1,12 +1,13 @@
 package middleware
 
 import (
+	"io/ioutil"
+
 	"github.com/alibaba/sentinel-golang/api"
 	"github.com/alibaba/sentinel-golang/core/circuitbreaker"
 	"github.com/alibaba/sentinel-golang/core/flow"
 	"github.com/alibaba/sentinel-golang/core/system"
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
 )
 
 const (

@@ -1,8 +1,9 @@
 package main
 
 import (
-	"golang.org/x/time/rate"
 	"sync"
+
+	"golang.org/x/time/rate"
 )
 
 type IPRateLimit struct {

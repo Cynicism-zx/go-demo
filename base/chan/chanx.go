@@ -153,7 +153,7 @@ func FanOutRandom(ch <-chan interface{}, out []chan interface{}) {
 			}
 		}()
 
-		var n = len(out)
+		n := len(out)
 		for v := range ch {
 			v := v
 			i := rand.Intn(n)

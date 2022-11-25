@@ -3,7 +3,6 @@ package ast
 import (
 	"bytes"
 	"fmt"
-	"github.com/pkg/errors"
 	"go/ast"
 	"go/format"
 	"go/parser"
@@ -13,12 +12,14 @@ import (
 	"strings"
 	"sync"
 	"text/template"
+
+	"github.com/pkg/errors"
 )
 
 // 根据常量注释，生成map映射关系
 func genConstComment(file, outFile string) {
 	// 保存注释信息
-	var comments = make(map[interface{}]string)
+	comments := make(map[interface{}]string)
 
 	fileSet := token.NewFileSet()
 	// 获取ast node
@@ -110,7 +111,7 @@ func GetErrMsg(code {{.type}}) string {
 
 // gen 生成代码
 func gen(cType interface{}, comments map[interface{}]string) ([]byte, error) {
-	var buf = bytes.NewBufferString("")
+	buf := bytes.NewBufferString("")
 
 	data := map[string]interface{}{
 		"pkg":      "example",

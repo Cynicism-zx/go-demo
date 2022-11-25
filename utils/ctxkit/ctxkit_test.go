@@ -2,8 +2,9 @@ package ctxkit
 
 import (
 	"context"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestContextValue(t *testing.T) {

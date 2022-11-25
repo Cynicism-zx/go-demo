@@ -6,8 +6,10 @@ type LocationAddress struct {
 	City     string `json:"city"`
 }
 
-var cityDB *City
-var cityDbError error
+var (
+	cityDB      *City
+	cityDbError error
+)
 
 func init() {
 	cityDB, cityDbError = NewCity("address/address.datx")

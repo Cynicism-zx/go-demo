@@ -23,6 +23,7 @@ int SayHello(blob* pblob) {
 }
 */
 import "C"
+
 import (
 	"fmt"
 	"unsafe"

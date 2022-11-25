@@ -2,8 +2,9 @@ package postgres
 
 import (
 	"bytes"
-	embeddedpostgres "github.com/fergusstrange/embedded-postgres"
 	"time"
+
+	embeddedpostgres "github.com/fergusstrange/embedded-postgres"
 )
 
 func main() {

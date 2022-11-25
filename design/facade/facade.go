@@ -3,24 +3,21 @@ package facade
 import "fmt"
 
 // CPU
-type CPU struct {
-}
+type CPU struct{}
 
 func (CPU) start() {
 	fmt.Println("启动CPU。。。")
 }
 
 // 内存
-type Memory struct {
-}
+type Memory struct{}
 
 func (Memory) start() {
 	fmt.Println("启动内存管理。。。")
 }
 
 // 硬盘
-type Disk struct {
-}
+type Disk struct{}
 
 func (Disk) start() {
 	fmt.Println("启动硬盘。。。")
@@ -31,8 +28,7 @@ type Btn interface {
 }
 
 // 开机键
-type StartBtn struct {
-}
+type StartBtn struct{}
 
 func (StartBtn) startBth() {
 	cpu := &CPU{}

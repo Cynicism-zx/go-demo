@@ -22,7 +22,7 @@ func TestChan(t *testing.T) {
 			ch <- elem
 		}
 		rw.Unlock()
-		//close(ch)
+		// close(ch)
 	}()
 }
 

@@ -11,8 +11,7 @@ type Cooker interface {
 }
 
 // 类似于一个抽象类
-type CookMenu struct {
-}
+type CookMenu struct{}
 
 func (CookMenu) open() {
 	fmt.Println("打开开关")

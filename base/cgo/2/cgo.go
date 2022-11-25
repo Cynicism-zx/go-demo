@@ -5,6 +5,7 @@ package main
 int SayHello();
 */
 import "C"
+
 import (
 	"fmt"
 )

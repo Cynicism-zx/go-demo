@@ -1,8 +1,9 @@
 package main
 
 import (
-	"go-demo/utils/asynq_demo/tasks"
 	"log"
+
+	"go-demo/utils/asynq_demo/tasks"
 
 	"github.com/hibiken/asynq"
 )

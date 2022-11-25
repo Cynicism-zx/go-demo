@@ -3,12 +3,13 @@ package rocketmq
 import (
 	"context"
 	"fmt"
+	"strconv"
+	"time"
+
 	"github.com/apache/rocketmq-client-go/v2"
 	"github.com/apache/rocketmq-client-go/v2/consumer"
 	"github.com/apache/rocketmq-client-go/v2/primitive"
 	"github.com/apache/rocketmq-client-go/v2/producer"
-	"strconv"
-	"time"
 )
 
 // 使用自建的rocketmq
@@ -25,7 +26,8 @@ func Consumer() {
 		consumer.WithNsResolver(primitive.NewPassthroughResolver([]string{rocketMQServer})),
 	)
 	err := c.Subscribe(topic, consumer.MessageSelector{}, func(ctx context.Context,
-		msgs ...*primitive.MessageExt) (consumer.ConsumeResult, error) {
+		msgs ...*primitive.MessageExt,
+	) (consumer.ConsumeResult, error) {
 		for i := range msgs {
 			fmt.Printf("subscribe callback: %v \n", msgs[i])
 		}

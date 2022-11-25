@@ -32,7 +32,7 @@ func main() {
 	fmt.Println("redis port: ", config.Port)
 	fmt.Println("redis db: ", config.DB)
 
-	var m = make(map[string]interface{})
+	m := make(map[string]interface{})
 	if err := mergo.Map(&m, defaultConfig); err != nil {
 		log.Fatal(err)
 	}

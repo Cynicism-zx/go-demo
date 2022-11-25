@@ -108,7 +108,7 @@ func GetUserInfo(info *PrivateInfo, w http.ResponseWriter) {
 }
 
 func convertToMap(str string) map[string]string {
-	var resultMap = make(map[string]string)
+	resultMap := make(map[string]string)
 	values := strings.Split(str, "&")
 	for _, value := range values {
 		vs := strings.Split(value, "=")

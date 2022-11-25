@@ -2,7 +2,6 @@ package server
 
 import (
 	"fmt"
-	"go-demo/utils/seq"
 	"io"
 	"io/ioutil"
 	"log"
@@ -10,6 +9,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"go-demo/utils/seq"
 )
 
 // 创建一个简单的web服务器
@@ -98,7 +99,7 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 	_, err = os.Stat(uploadPath)
 	if err != nil {
 		if os.IsNotExist(err) {
-			err := os.MkdirAll(uploadPath, 0666)
+			err := os.MkdirAll(uploadPath, 0o666)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
 				log.Println("文件夹不存在，创建失败")

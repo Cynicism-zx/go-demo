@@ -2,12 +2,11 @@ package consul
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/consul/api"
 )
 
-var (
-	client *api.Client
-)
+var client *api.Client
 
 func init() {
 	config := &api.Config{
@@ -29,13 +28,13 @@ func Register(id string) {
 		Port:    8080,
 		Tags:    []string{"sns"},
 	}
-	//增加check
+	// 增加check
 	check := &api.AgentServiceCheck{
 		HTTP:     fmt.Sprintf("http://%s:%d%s", registration.Address, registration.Port, "/check"),
-		Timeout:  "5s", //设置超时 5s
-		Interval: "5s", //设置间隔 5s
+		Timeout:  "5s", // 设置超时 5s
+		Interval: "5s", // 设置间隔 5s
 	}
-	//注册check服务
+	// 注册check服务
 	registration.Check = check
 
 	err := client.Agent().ServiceRegister(registration)

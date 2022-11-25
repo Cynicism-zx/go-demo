@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 )
 
-//存储type，可以实现安全存储不会引发panic
+// 存储type，可以实现安全存储不会引发panic
 type AtomicValue struct {
 	v atomic.Value
 	t reflect.Type

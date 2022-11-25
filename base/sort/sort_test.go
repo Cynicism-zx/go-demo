@@ -8,14 +8,14 @@ import (
 
 func TestSort(t *testing.T) {
 	ids := []int{1, 5, 6, 11, 19, 2, 7}
-	//递增排序,方法一
+	// 递增排序,方法一
 	sort.Ints(ids)
 	t.Log(ids)
-	//递增排序，方法二
+	// 递增排序，方法二
 	sort.Sort(sort.IntSlice(ids))
 	t.Log(ids)
 
-	//递减排序
+	// 递减排序
 	reverse := sort.Reverse(sort.IntSlice(ids))
 	sort.Sort(reverse)
 	t.Log(ids)
@@ -34,7 +34,7 @@ func TestSortObj(t *testing.T) {
 	t.Log(persons)
 
 	sort.Sort(PersonSwapper{persons, func(p, q *Person) bool {
-		return p.Name < q.Name //按姓名递增
+		return p.Name < q.Name // 按姓名递增
 	}})
 	t.Log(persons)
 

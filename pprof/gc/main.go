@@ -27,7 +27,7 @@ func main() {
 	readMemStats()
 
 	log.Println(" ===> [start gc]")
-	runtime.GC() //强制调用gc回收
+	runtime.GC() // 强制调用gc回收
 
 	log.Println(" ===> [gc Done].")
 	readMemStats()

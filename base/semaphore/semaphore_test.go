@@ -3,10 +3,11 @@ package semaphore
 import (
 	"context"
 	"fmt"
-	"golang.org/x/sync/semaphore"
 	"runtime"
 	"testing"
 	"time"
+
+	"golang.org/x/sync/semaphore"
 )
 
 var (

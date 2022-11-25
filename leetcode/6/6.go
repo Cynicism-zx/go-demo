@@ -11,9 +11,9 @@ func main() {
 
 // 二分法暴力求解
 func square(x int) int {
-	var mid = -1
-	var l = 0 // 左边界
-	var r = x // 右边界
+	mid := -1
+	l := 0 // 左边界
+	r := x // 右边界
 
 	for l <= r {
 		mid = l + (r-l)/2 // 取 l 与 r 的中间位置

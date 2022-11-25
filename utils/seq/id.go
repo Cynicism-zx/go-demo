@@ -2,10 +2,11 @@ package seq
 
 import (
 	"context"
+	"time"
+
 	"github.com/gogf/gf/util/gconv"
 	"github.com/sony/sonyflake"
 	"google.golang.org/grpc/metadata"
-	"time"
 )
 
 var (
@@ -17,7 +18,7 @@ func init() {
 	var st sonyflake.Settings
 	st.StartTime = startTime
 	// 机器位默认的是当前机器的私有IP的最后两位
-	//st.MachineID = machineId
+	// st.MachineID = machineId
 	sf = sonyflake.NewSonyflake(st)
 	if sf == nil {
 		panic("sonyflake not created")

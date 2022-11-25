@@ -3,12 +3,12 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
-	pb "go-demo/base/rpc/lv5"
 	"net/rpc"
+
+	pb "go-demo/base/rpc/lv5"
 )
 
-type HelloService struct {
-}
+type HelloService struct{}
 
 func (*HelloService) Hello(req string, resp *string) error {
 	*resp = "this is http rpc: " + req

@@ -2,8 +2,9 @@ package js
 
 import (
 	"fmt"
-	"github.com/robertkrimen/otto"
 	"testing"
+
+	"github.com/robertkrimen/otto"
 )
 
 // 使用Go来解释执行Js代码

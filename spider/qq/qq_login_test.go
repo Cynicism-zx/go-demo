@@ -1,8 +1,9 @@
 package qq
 
 import (
-	"go-demo/utils/env"
 	"testing"
+
+	"go-demo/utils/env"
 )
 
 func TestQQLogin(t *testing.T) {

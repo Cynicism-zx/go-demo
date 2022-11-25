@@ -47,7 +47,6 @@ func TestTimeout(t *testing.T) {
 	time.AfterFunc(dur, func() {
 		fmt.Println("到达deadLine，停止方法")
 		done <- struct{}{}
-
 	})
 	select {
 	case <-done:

@@ -15,7 +15,7 @@ func BodyLimit(handler http.HandlerFunc) http.HandlerFunc {
 		}
 
 		var maxLength int64 = 128
-		var body = make(map[string]interface{})
+		body := make(map[string]interface{})
 
 		err := json.NewDecoder(io.LimitReader(r.Body, maxLength)).Decode(&body)
 		if err != nil {

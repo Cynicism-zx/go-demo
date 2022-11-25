@@ -9,7 +9,7 @@ import (
 func TestExecCmd(t *testing.T) {
 	sysType := runtime.GOOS
 	if sysType == "linux" {
-		//Linux
+		// Linux
 		out, err := exec.Command("echo", "Hello World").Output()
 		if err != nil {
 			t.Error(err)
@@ -30,7 +30,7 @@ func TestExecCmd(t *testing.T) {
 func TestExecKillChildProc(t *testing.T) {
 	cmd := exec.Command("curl", "-o", "test.tar.gz", "http://test.tar.gz")
 	// 设置当主进程退出时，将子进程也退出，仅linux系统支持
-	//cmd.SysProcAttr = &syscall.SysProcAttr{Pdeathsig: syscall.SIGKILL}
+	// cmd.SysProcAttr = &syscall.SysProcAttr{Pdeathsig: syscall.SIGKILL}
 	err := cmd.Start()
 	if err != nil {
 		t.Error(err)

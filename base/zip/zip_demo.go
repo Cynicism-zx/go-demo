@@ -11,7 +11,6 @@ import (
 
 // 判断是否是压缩文件
 func isZip(filePath string) bool {
-
 	file, err := os.Open(filePath)
 	if err != nil {
 		log.Println("file is not exits")
@@ -28,14 +27,13 @@ func isZip(filePath string) bool {
 
 // 解压zip文件
 func unzip(zipfile, target string) error {
-
 	reader, err := zip.OpenReader(zipfile)
 	if err != nil {
 		return err
 	}
 	defer reader.Close()
 
-	if err := os.MkdirAll(target, 0765); err != nil {
+	if err := os.MkdirAll(target, 0o765); err != nil {
 		return err
 	}
 
@@ -93,7 +91,7 @@ func zipfile(fileName string, files []zipFile) {
 		log.Fatal(err)
 	}
 
-	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, 0666)
+	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, 0o666)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -15,7 +15,6 @@ func main() {
 */
 func kuaipai(arrays []int) {
 	recursionSort(arrays, 0, len(arrays)-1)
-
 }
 
 func recursionSort(nums []int, left int, right int) {

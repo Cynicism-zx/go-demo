@@ -32,7 +32,6 @@ type BStruct struct {
 }
 
 func main() {
-
 	a := SomeStruct{}
 	err := faker.FakeData(&a)
 	if err != nil {

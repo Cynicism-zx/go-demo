@@ -8,7 +8,8 @@ import (
 var pool = sync.Pool{
 	New: func() interface{} {
 		return new(smmall)
-	}}
+	},
+}
 
 type smmall struct {
 	a int

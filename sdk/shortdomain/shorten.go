@@ -19,7 +19,6 @@ type ShortResponse struct {
 
 // https://www.free-api.com/doc/300
 func GetShortURL(longURL string) (string, error) {
-
 	params := url.Values{}
 	params.Add("url", longURL)
 	params.Add("dwzapi", "urlcn")

@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/nsqio/go-nsq"
 	"time"
+
+	"github.com/nsqio/go-nsq"
 )
 
 var (
@@ -37,14 +38,14 @@ func Producer(topic string, data []byte) error {
 
 // 消费消息
 func Consumer(topic, channel string, handlerFunc nsq.HandlerFunc) error {
-	//新建一个消费者
+	// 新建一个消费者
 	c, err := nsq.NewConsumer(topic, channel, defaultConfig)
 	if err != nil {
 		panic(err)
 	}
-	//添加消息处理
+	// 添加消息处理
 	c.AddHandler(handlerFunc)
-	//建立连接
+	// 建立连接
 	return c.ConnectToNSQD(addr)
 }
 

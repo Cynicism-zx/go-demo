@@ -3,18 +3,19 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/robfig/cron"
 	"io/ioutil"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/robfig/cron"
 )
 
 type Gift struct {
 	Name string `json:"name"`
 }
 
-//自动获取
+// 自动获取
 func main() {
 	c := cron.New()
 	// 每天凌晨5点执行一次
@@ -36,7 +37,7 @@ func main() {
 			fmt.Println("请求内容失败")
 		}
 		defer resp.Body.Close()
-		var gift = Gift{}
+		gift := Gift{}
 		err = json.Unmarshal(body, &gift)
 		if err != nil {
 			fmt.Println("JSON解析失败", err.Error())

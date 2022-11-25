@@ -33,5 +33,4 @@ func TestSyncMap(t *testing.T) {
 		fmt.Println(key, value)
 		return true
 	})
-
 }

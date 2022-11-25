@@ -1,10 +1,11 @@
 package chanx_test
 
 import (
-	chanx "go-demo/base/chan"
 	"math/rand"
 	"testing"
 	"time"
+
+	chanx "go-demo/base/chan"
 )
 
 func TestChanOrOne(t *testing.T) {

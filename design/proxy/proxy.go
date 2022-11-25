@@ -8,7 +8,7 @@ type Seller interface {
 
 // 火车站
 type Station struct {
-	stock int //库存
+	stock int // 库存
 }
 
 func (station *Station) sell(name string) {
@@ -18,7 +18,6 @@ func (station *Station) sell(name string) {
 	} else {
 		fmt.Println("票已售空")
 	}
-
 }
 
 // 火车代理点

@@ -1,3 +1,4 @@
+//go:build windows
 // +build windows
 
 package disk
@@ -19,9 +20,11 @@ func GetSystemDisks() []string {
 	// 调用dll中函数
 	n, _, _ := GetLogicalDrives.Call()
 	s := strconv.FormatInt(int64(n), 2)
-	var allDrives = []string{"A:", "B:", "C:", "D:", "E:", "F:", "G:", "H:",
+	allDrives := []string{
+		"A:", "B:", "C:", "D:", "E:", "F:", "G:", "H:",
 		"I:", "J:", "K:", "L:", "M:", "N:", "O:", "P：", "Q：", "R：", "S：", "T：",
-		"U：", "V：", "W：", "X：", "Y：", "Z："}
+		"U：", "V：", "W：", "X：", "Y：", "Z：",
+	}
 	temp := allDrives[0:len(s)]
 	var d []string
 	for i, v := range s {
@@ -39,7 +42,7 @@ func GetSystemDisks() []string {
 
 // 获取插入的U盘盘符
 func GetUDisk() []string {
-	//查询注册表，判断是否插入U盘
+	// 查询注册表，判断是否插入U盘
 	k, err := registry.OpenKey(registry.LOCAL_MACHINE, `SYSTEM\CurrentControlSet\Services\USBSTOR\Enum`, registry.QUERY_VALUE)
 	if err != nil {
 		fmt.Println("Not have U-Disk")

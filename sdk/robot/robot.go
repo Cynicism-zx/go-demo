@@ -60,7 +60,6 @@ type RobotMsg struct {
 }
 
 func Send(msg *RobotMsg) error {
-
 	data, _ := json.Marshal(msg)
 
 	resp, err := http.Post(_RobotURL, "application/json", bytes.NewReader(data))
