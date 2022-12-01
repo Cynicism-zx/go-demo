@@ -86,6 +86,7 @@ type H2O struct {
 	semaH *semaphore.Weighted         // 氢原子的信号量
 	semaO *semaphore.Weighted         // 氧原子的信号量
 	cb    cyclicbarrier.CyclicBarrier // 循环栅栏，用来控制合成
+	wg    sync.WaitGroup              // 用来等待所有的goroutine完成
 }
 
 func New() *H2O {
@@ -96,6 +97,7 @@ func New() *H2O {
 	}
 }
 
+//////////////// 使用cyclicbarrier
 // 制造氢原子
 func (h2o *H2O) hydrogen(releaseHydrogen func()) {
 	h2o.semaH.Acquire(context.Background(), 1)
@@ -112,4 +114,29 @@ func (h2o *H2O) oxygen(releaseOxygen func()) {
 	releaseOxygen()                    // 输出O
 	h2o.cb.Await(context.Background()) // 等待栅栏放行
 	h2o.semaO.Release(1)               // 释放氧原子空槽
+}
+
+//////////////// 使用WaitGroup
+func (h2o *H2O) hydrogen_(releaseHydrogen func()) {
+	h2o.semaH.Acquire(context.Background(), 1)
+	releaseHydrogen()
+
+	// 标记自己已达到，等待其它goroutine到达
+	h2o.wg.Done()
+	h2o.wg.Wait()
+
+	h2o.semaH.Release(1)
+}
+
+func (h2o *H2O) oxygen_(releaseOxygen func()) {
+	h2o.semaO.Acquire(context.Background(), 1)
+	releaseOxygen()
+
+	// 标记自己已达到，等待其它goroutine到达
+	h2o.wg.Done()
+	h2o.wg.Wait()
+	//都到达后重置wg
+	h2o.wg.Add(3)
+
+	h2o.semaO.Release(1)
 }
