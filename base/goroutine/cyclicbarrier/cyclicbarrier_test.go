@@ -71,6 +71,7 @@ func TestCyclicBarrier(t *testing.T) {
 		s[0] = <-ch
 		s[1] = <-ch
 		s[2] = <-ch
+		// 按照HHO排序
 		sort.Strings(s)
 
 		water := s[0] + s[1] + s[2]
