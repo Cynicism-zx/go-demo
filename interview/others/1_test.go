@@ -38,6 +38,14 @@ func Test2(t *testing.T) {
 	i = i + 5
 }
 
+func Test33(t *testing.T) {
+	i := 5
+	defer func(n int) {
+		PrintContent(n)
+	}(i)
+	i = i + 5
+}
+
 func PrintContent(i int) {
 	fmt.Println(i)
 }
