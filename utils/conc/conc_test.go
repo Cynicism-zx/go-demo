@@ -96,8 +96,21 @@ func TestStream(t *testing.T) {
 			t.Logf("now %d", l)
 			return func() {
 				t.Logf("callback %d", l)
+				if l == 5 {
+					panic("oh no")
+				}
 			}
 		})
 	}
 	st.Wait()
+}
+
+// Handle panics gracefully
+func TestCatcher(t *testing.T) {
+	var panicCatcher conc.PanicCatcher
+	panicCatcher.Try(func() {
+		panic("oh no")
+	})
+	// 抛出捕获到的第一个panic
+	panicCatcher.Repanic()
 }
