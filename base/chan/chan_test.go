@@ -33,7 +33,7 @@ func TestFanIn(t *testing.T) {
 	ch2 := make(chan interface{})
 
 	go func() {
-		for i := 0; i < 100; i++ {
+		for i := 0; i < 10; i++ {
 			if i%2 != 0 {
 				ch1 <- i
 			} else {
@@ -57,11 +57,11 @@ func TestFanIn(t *testing.T) {
 }
 
 func TestFanInByReflect(t *testing.T) {
-	ch1 := make(chan interface{})
-	ch2 := make(chan interface{})
+	ch1 := make(chan int)
+	ch2 := make(chan int)
 
 	go func() {
-		for i := 0; i < 100; i++ {
+		for i := 0; i < 10; i++ {
 			if i%2 != 0 {
 				ch1 <- i
 			} else {

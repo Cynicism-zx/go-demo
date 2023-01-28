@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// go结构化并发的工具箱，使普通的任务更容易、更安全 https://github.com/sourcegraph/conc
+// TODO go结构化并发的工具箱，使普通的任务更容易、更安全 https://github.com/sourcegraph/conc
 
 func TestPool(t *testing.T) {
 	p := pool.New()
@@ -113,4 +113,7 @@ func TestCatcher(t *testing.T) {
 	})
 	// 抛出捕获到的第一个panic
 	panicCatcher.Repanic()
+
+	// atomic.Pointer[int64]{} load()不用进行断言操作
+	// atomic.Value{} load()需要进行断言操作
 }

@@ -16,5 +16,6 @@ func TestDecorator(t *testing.T) {
 	hat.person = jacket
 	hat.show()
 
+	// 累加夹克和帽子的价格
 	fmt.Println("cost:", hat.cost())
 }

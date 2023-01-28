@@ -7,7 +7,6 @@ import (
 	"go/format"
 	"go/parser"
 	"go/token"
-	"io/ioutil"
 	"os"
 	"strings"
 	"sync"
@@ -64,7 +63,7 @@ func genConstComment(file, outFile string) {
 	if err != nil {
 		panic(err)
 	}
-	err = ioutil.WriteFile(outFile, bs, os.ModePerm)
+	err = os.WriteFile(outFile, bs, os.ModePerm)
 	if err != nil {
 		panic(err)
 	}

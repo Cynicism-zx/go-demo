@@ -70,8 +70,8 @@ func FanIn(chs ...<-chan interface{}) <-chan interface{} {
 }
 
 // 将多个同样类型的输入channel合并成一个同样类型的输出channel
-func FanInByReflect(chs ...<-chan interface{}) <-chan interface{} {
-	out := make(chan interface{})
+func FanInByReflect[T any](chs ...<-chan T) <-chan int {
+	out := make(chan int)
 	go func() {
 		defer close(out)
 

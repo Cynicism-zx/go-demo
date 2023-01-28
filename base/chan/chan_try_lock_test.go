@@ -30,7 +30,7 @@ func (m *Mutex) UnLock() {
 	}
 }
 
-// 判断锁是否已经别人持有
+// TODO 判断锁是否已经别人持有
 func (m *Mutex) IsLocked() bool {
 	return len(m.ch) == 0
 }
