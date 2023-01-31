@@ -95,6 +95,7 @@ require (
 	github.com/spf13/cobra v1.4.0
 	github.com/streadway/amqp v0.0.0-20190404075320-75d898a42a94
 	github.com/stretchr/testify v1.8.1
+	github.com/thejerf/suture/v4 v4.0.2
 	github.com/thoas/go-funk v0.9.2
 	github.com/uber/jaeger-client-go v2.23.1+incompatible
 	github.com/unidoc/unioffice v1.2.0

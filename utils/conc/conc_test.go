@@ -117,3 +117,20 @@ func TestCatcher(t *testing.T) {
 	// atomic.Pointer[int64]{} load()不用进行断言操作
 	// atomic.Value{} load()需要进行断言操作
 }
+
+func TestBbb(t *testing.T) {
+	done := bbb()
+	done()
+}
+
+func aaa() (done func()) {
+	return func() { print("aaa: done") }
+}
+
+func bbb() (done func()) {
+	done = aaa()
+	return func() {
+		print("bbb: surprise!")
+		done()
+	}
+}
