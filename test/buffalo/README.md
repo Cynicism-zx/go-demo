@@ -1,2 +1,2 @@
-#### buffalo 
-- buffalo提供的`buffalo-pop pop` 数据库迁移命令
+#### soda 
+- buffalo提供的`soda` 数据库迁移命令
